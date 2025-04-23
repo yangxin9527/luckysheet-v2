@@ -161,6 +161,7 @@ luckysheet.create = function (setting) {
 
     //loading
     $("#" + container).append(luckysheetlodingHTML());
+    // debugger
     if(Store.isDark){
         $("#" + container).addClass('dark')
     }

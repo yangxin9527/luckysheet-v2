@@ -255,7 +255,7 @@ const gridHTML = function(){
                         </div> 
                     </div>
                     <div id="luckysheet-copy-content" contenteditable="true"></div>
-                    <input id="luckysheet-copy-btn" type="button" data-clipboard-target="luckysheet-copy-content">
+                    <input id="luckysheet-copy-btn" style='opacity:0;display:none;' type="button" data-clipboard-target="luckysheet-copy-content">
                     <div id="testdpidiv" style="height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;"></div>
                   </div>`;
 }

@@ -17,7 +17,9 @@
     --border:#313132 ;
    
 }
-
+.luckysheetloadingdata{
+    background: var(--background-white-main);
+}
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
@@ -40,7 +42,7 @@
              height: 100%;*/
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-    border: 1px solid #e5e5e5;
+    /* border: 1px solid #e5e5e5; */
     background: var(--background-white-main);
 }
 
@@ -53,6 +55,7 @@
     height: 90px;
     width: 100%;
     position: relative;
+    display:none
 }
 
 .luckysheet_info_detail {
@@ -920,14 +923,13 @@
     position: absolute;
     height: 23px;
     bottom: 0px;
-    background: #ff00dc;
+    /* background: #ff00dc; */
     width: 100%;
 }
 
 .luckysheet-sta-c {
     height: 22px;
-    background-color: var(--background-white-main);
-    border-top: 1px solid #e1e1e1;
+    /* border-top: 1px solid #e1e1e1; */
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -965,7 +967,7 @@
     left: 0;
     right: 0px;
     overflow: hidden;
-    background: #00ffff;
+    /* background: #00ffff; */
 }
 
 .luckysheet-sheet-area {
@@ -7261,3 +7263,10 @@ fieldset[disabled] .btn-danger.focus {
     white-space: nowrap;
 }
 
+//hack
+.luckysheet_info_detail{
+    display: none !important;
+}
+.luckysheet-wa-editor.toolbar{
+    display: none;
+}
