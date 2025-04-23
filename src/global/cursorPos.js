@@ -139,11 +139,6 @@ function isInPage(node) {
 }
 
 export {
-    luckysheetRangeLast,
     getCursortPosition,
-    hideMenuByCancel,
-    selectTextContent,
-    selectTextDom,
-    selectTextContentCross,
-    selectTextContentCollapse
-}
+    hideMenuByCancel, luckysheetRangeLast, selectTextContent, selectTextContentCollapse, selectTextContentCross, selectTextDom
+};

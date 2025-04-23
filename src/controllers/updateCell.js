@@ -1,31 +1,37 @@
-import pivotTable from './pivotTable';
-import luckysheetFreezen from './freezen';
-import menuButton from './menuButton';
-import conditionformat from './conditionformat';
-import alternateformat from './alternateformat';
-import cellDatePickerCtrl from './cellDatePickerCtrl';
-import dataVerificationCtrl from './dataVerificationCtrl';
-import {checkProtectionLocked,checkProtectionCellHidden}  from './protection';
-import { chatatABC } from '../utils/util';
-import { isEditMode } from '../global/validate';
-import { getcellvalue,getInlineStringStyle } from '../global/getdata';
+import cleargridelement from '../global/cleargridelement';
+import { luckysheetRangeLast } from '../global/cursorPos';
 import { valueShowEs } from '../global/format';
 import formula from '../global/formula';
-import { luckysheetRangeLast } from '../global/cursorPos';
-import cleargridelement from '../global/cleargridelement';
-import {isInlineStringCell} from './inlineString';
-import Store from '../store';
-import server from './server';
+import { getcellvalue, getInlineStringStyle } from '../global/getdata';
 import method from '../global/method';
+import { isEditMode } from '../global/validate';
+import Store from '../store';
+import { chatatABC } from '../utils/util';
+import alternateformat from './alternateformat';
+import cellDatePickerCtrl from './cellDatePickerCtrl';
+import conditionformat from './conditionformat';
+import dataVerificationCtrl from './dataVerificationCtrl';
+import luckysheetFreezen from './freezen';
+import { isInlineStringCell } from './inlineString';
+import menuButton from './menuButton';
+import pivotTable from './pivotTable';
+import { checkProtectionCellHidden, checkProtectionLocked } from './protection';
+import server from './server';
 
 export function luckysheetupdateCell(row_index1, col_index1, d, cover, isnotfocus) {
+    
     if(!checkProtectionLocked(row_index1, col_index1, Store.currentSheetIndex)){
         $("#luckysheet-functionbox-cell").blur();
         return;
     }
-
-    if(isEditMode() || Store.allowEdit===false){//此模式下禁用单元格编辑
-        return;
+    
+    if(Store.diy){
+        $("#luckysheet-rich-text-editor").attr("contenteditable", "false")
+        $("#luckysheet-rich-text-editor").css("caret-color", "transparent"); /* 隐藏光标 */
+    }else{
+        if(isEditMode() || Store.allowEdit===false){//此模式下禁用单元格编辑
+            return;
+        }
     }
 
     // 钩子函数
@@ -95,7 +101,12 @@ export function luckysheetupdateCell(row_index1, col_index1, d, cover, isnotfocu
 
     Store.luckysheetCellUpdate = [row_index, col_index];
     if (!isnotfocus) {
-        $("#luckysheet-rich-text-editor").focus().select();
+        if(Store.diy){
+
+        }else{
+            $("#luckysheet-rich-text-editor").focus().select();
+        }
+         
     }
 
     $("#luckysheet-input-box").removeAttr("style").css({ 
@@ -224,7 +235,10 @@ export function luckysheetupdateCell(row_index1, col_index1, d, cover, isnotfocu
     else{
         $("#luckysheet-rich-text-editor").html(value);
         if (!isnotfocus) {
-            luckysheetRangeLast($("#luckysheet-rich-text-editor")[0]);
+            if(!Store.diy){
+                luckysheetRangeLast($("#luckysheet-rich-text-editor")[0]);
+            }
+
         }
     }
 

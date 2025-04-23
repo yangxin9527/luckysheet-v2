@@ -66,6 +66,8 @@ luckysheet.create = function (setting) {
         theme: isDark?'dark':'light',
         ...(isDark?THEME_DARK:THEME_LIGHT)
     }
+    Store.diy = extendsetting.diy;
+    
     let loadurl = extendsetting.loadUrl,
         menu = extendsetting.menu,
         title = extendsetting.title;
@@ -161,7 +163,6 @@ luckysheet.create = function (setting) {
 
     //loading
     $("#" + container).append(luckysheetlodingHTML());
-    // debugger
     if(Store.isDark){
         $("#" + container).addClass('dark')
     }

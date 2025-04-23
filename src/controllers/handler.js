@@ -1126,13 +1126,14 @@ export default function luckysheetHandler() {
     }).mouseup(function (event) {
         if (event.which == "3") {
             //禁止前台编辑(只可 框选单元格、滚动查看表格)
-            if (!Store.allowEdit) {
-                return;
-            }
 
-            if (isEditMode()) { //非编辑模式下禁止右键功能框
-                return;
-            }
+                if (!Store.allowEdit) {
+                    return;
+                }
+                
+                if (isEditMode()) { //非编辑模式下禁止右键功能框
+                    return;
+                }
 
             let x = event.pageX;
             let y = event.pageY;
@@ -1333,9 +1334,11 @@ export default function luckysheetHandler() {
             return;
         }
         
-        //禁止前台编辑(只可 框选单元格、滚动查看表格)
-        if (!Store.allowEdit) {
-            return;
+        if(!Store.diy){
+            //禁止前台编辑(只可 框选单元格、滚动查看表格)
+            if (!Store.allowEdit) {
+                return;
+            }
         }
 
         if (parseInt($("#luckysheet-input-box").css("top")) > 0) {

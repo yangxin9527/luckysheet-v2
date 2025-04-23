@@ -1,10 +1,10 @@
-import { columeHeader_word, columeHeader_word_index, luckysheetdefaultFont } from '../controllers/constant';
+import numeral from 'numeral';
+import { columeHeader_word, luckysheetdefaultFont } from '../controllers/constant';
 import menuButton from '../controllers/menuButton';
 import { isdatatype, isdatatypemulti } from '../global/datecontroll';
-import { hasChinaword,isRealNum } from '../global/validate';
-import Store from '../store';
+import { hasChinaword, isRealNum } from '../global/validate';
 import locale from '../locale/locale';
-import numeral from 'numeral';
+import Store from '../store';
 // import method from '../global/method';
 
 /**
@@ -873,32 +873,5 @@ function arrayRemoveItem(array, item) {
 
   
 export {
-    isJsonString,
-    common_extend,
-    replaceHtml,
-    getObjType,
-    getNowDateTime,
-    hexToRgb,
-    rgbTohex,
-    ABCatNum,
-    chatatABC,
-    ceateABC,
-    createABCdim,
-    getByteLen,
-    ArrayUnique,
-    luckysheetfontformat,
-    showrightclickmenu,
-    luckysheetactiveCell,
-    numFormat,
-    numfloatlen,
-    mouseclickposition,
-    $$,
-    seriesLoadScripts,
-    parallelLoadScripts,
-    loadLinks,
-    luckysheetContainerFocus,
-    transformRangeToAbsolute,
-    openSelfModel,
-    createProxy,
-    arrayRemoveItem
-}
+    $$, ABCatNum, arrayRemoveItem, ArrayUnique, ceateABC, chatatABC, common_extend, createABCdim, createProxy, getByteLen, getNowDateTime, getObjType, hexToRgb, isJsonString, loadLinks, luckysheetactiveCell, luckysheetContainerFocus, luckysheetfontformat, mouseclickposition, numfloatlen, numFormat, openSelfModel, parallelLoadScripts, replaceHtml, rgbTohex, seriesLoadScripts, showrightclickmenu, transformRangeToAbsolute
+};
