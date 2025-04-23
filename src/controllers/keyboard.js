@@ -1,35 +1,35 @@
-import luckysheetConfigsetting from './luckysheetConfigsetting';
-import menuButton from './menuButton';
 import conditionformat from './conditionformat';
-import server from './server';
-import {luckysheetupdateCell,setCenterInputPosition} from './updateCell';
 import { keycode } from './constant';
-import { 
-    luckysheetMoveHighlightCell, 
-    luckysheetMoveHighlightCell2, 
-    luckysheetMoveHighlightRange, 
-    luckysheetMoveHighlightRange2 
-} from './sheetMove';
-import { selectHightlightShow, selectIsOverlap } from './select';
-import selection from './selection';
-import searchReplace from './searchReplace';
 import controlHistory from './controlHistory';
 import imageCtrl from './imageCtrl';
+import luckysheetConfigsetting from './luckysheetConfigsetting';
+import menuButton from './menuButton';
+import searchReplace from './searchReplace';
+import { selectHightlightShow, selectIsOverlap } from './select';
+import selection from './selection';
+import server from './server';
+import {
+    luckysheetMoveHighlightCell,
+    luckysheetMoveHighlightCell2,
+    luckysheetMoveHighlightRange,
+    luckysheetMoveHighlightRange2
+} from './sheetMove';
+import { luckysheetupdateCell, setCenterInputPosition } from './updateCell';
 
-import { 
+import cleargridelement from '../global/cleargridelement';
+import { luckysheetRangeLast } from '../global/cursorPos';
+import formula from '../global/formula';
+import tooltip from '../global/tooltip';
+import { hasPartMC, isEditMode } from '../global/validate';
+import locale from '../locale/locale';
+import { getSheetIndex } from '../methods/get';
+import Store from '../store';
+import {
     getByteLen,
     getNowDateTime,
     luckysheetactiveCell,
 } from '../utils/util';
-import { getSheetIndex } from '../methods/get';
-import { hasPartMC, isEditMode } from '../global/validate';
-import { luckysheetRangeLast } from '../global/cursorPos';
-import formula from '../global/formula';
-import cleargridelement from '../global/cleargridelement';
-import tooltip from '../global/tooltip';
-import locale from '../locale/locale';
-import {enterKeyControll} from './inlineString';
-import Store from '../store';
+import { enterKeyControll } from './inlineString';
 
 
 let luckysheet_shiftkeydown = false;
@@ -587,7 +587,7 @@ export function keyboardInitial(){
                     $("#luckysheet-icon-italic").click();
                 }
                 else if (kcode == 86) {//Ctrl + V  粘贴
-                    if(isEditMode()){//此模式下禁用粘贴
+                    if(!isEditMode()){//此模式下禁用粘贴
                         return;
                     }
 

@@ -1,71 +1,70 @@
-import mobileinit from './mobile';
-import luckysheetConfigsetting from './luckysheetConfigsetting';
-import luckysheetFreezen from './freezen';
-import pivotTable from './pivotTable';
-import luckysheetDropCell from './dropCell';
-import luckysheetPostil from './postil';
-import imageCtrl from './imageCtrl';
-import hyperlinkCtrl from './hyperlinkCtrl';
-import dataVerificationCtrl from './dataVerificationCtrl';
-import menuButton from './menuButton';
-import conditionformat from './conditionformat';
+import { hideMenuByCancel } from '../global/cursorPos';
 import alternateformat from './alternateformat';
-import ifFormulaGenerator from './ifFormulaGenerator';
-import sheetmanage from './sheetmanage';
-import server from './server';
-import {luckysheetupdateCell} from './updateCell';
-import { luckysheet_searcharray } from './sheetSearch';
-import luckysheetsizeauto from './resize'; 
-import { 
-    luckysheetMoveHighlightCell, 
-} from './sheetMove';
-import { selectHightlightShow, selectIsOverlap, selectionCopyShow, luckysheet_count_show,selectHelpboxFill } from './select';
-import selection from './selection';
-import controlHistory from './controlHistory';
-import splitColumn from './splitColumn';
-import {hideMenuByCancel} from '../global/cursorPos';
-import { luckysheetdefaultstyle } from './constant';
-import {checkProtectionLockedRangeList,checkProtectionAllSelected,checkProtectionSelectLockedOrUnLockedCells,checkProtectionNotEnable,checkProtectionAuthorityNormal} from './protection';
 import { openCellFormatModel } from './cellFormat';
+import conditionformat from './conditionformat';
+import controlHistory from './controlHistory';
+import dataVerificationCtrl from './dataVerificationCtrl';
+import luckysheetDropCell from './dropCell';
+import luckysheetFreezen from './freezen';
+import hyperlinkCtrl from './hyperlinkCtrl';
+import ifFormulaGenerator from './ifFormulaGenerator';
+import imageCtrl from './imageCtrl';
+import luckysheetConfigsetting from './luckysheetConfigsetting';
+import menuButton from './menuButton';
+import mobileinit from './mobile';
+import pivotTable from './pivotTable';
+import luckysheetPostil from './postil';
+import { checkProtectionAllSelected, checkProtectionAuthorityNormal, checkProtectionLockedRangeList, checkProtectionNotEnable, checkProtectionSelectLockedOrUnLockedCells } from './protection';
+import luckysheetsizeauto from './resize';
+import { luckysheet_count_show, selectHightlightShow, selectionCopyShow, selectIsOverlap } from './select';
+import selection from './selection';
+import server from './server';
+import sheetmanage from './sheetmanage';
+import {
+    luckysheetMoveHighlightCell,
+} from './sheetMove';
+import { luckysheet_searcharray } from './sheetSearch';
+import splitColumn from './splitColumn';
+import { luckysheetupdateCell } from './updateCell';
 
-import { 
-    replaceHtml,
-    getObjType, 
-    chatatABC, 
+import { createLuckyChart, hideAllNeedRangeShow } from '../expendPlugins/chart/plugin';
+import { getBorderInfoCompute } from '../global/border';
+import browser from '../global/browser';
+import { countfunc } from '../global/count';
+import { luckysheetDrawMain } from '../global/draw';
+import editor from '../global/editor';
+import { luckysheetextendtable } from '../global/extend';
+import { genarate } from '../global/format';
+import formula from '../global/formula';
+import { getdatabyselection } from '../global/getdata';
+import { rowlenByRange } from '../global/getRowlen';
+import {
+    colLocation,
+    mouseposition,
+    rowLocation
+} from '../global/location';
+import method from '../global/method';
+import {
+    jfrefreshgrid,
+    jfrefreshgrid_rhcw,
+    luckysheetrefreshgrid,
+} from '../global/refresh';
+import luckysheetscrollevent from '../global/scroll';
+import tooltip from '../global/tooltip';
+import { hasPartMC, isEditMode, isRealNull } from '../global/validate';
+import locale from '../locale/locale';
+import { getRangetxt, getSheetIndex } from '../methods/get';
+import Store from '../store';
+import {
+    $$,
     ArrayUnique,
-    showrightclickmenu, 
+    chatatABC,
+    getObjType,
     luckysheetactiveCell,
     luckysheetContainerFocus,
-    $$
+    replaceHtml,
+    showrightclickmenu
 } from '../utils/util';
-import { getSheetIndex, getRangetxt } from '../methods/get';
-import { 
-    rowLocation, 
-    colLocation, 
-    mouseposition 
-} from '../global/location';
-import { rowlenByRange } from '../global/getRowlen';
-import { isRealNull, hasPartMC, isEditMode } from '../global/validate';
-import { countfunc } from '../global/count';
-import browser from '../global/browser';
-import formula from '../global/formula';
-import { luckysheetextendtable } from '../global/extend';
-import luckysheetscrollevent from '../global/scroll';
-import { 
-    jfrefreshgrid, 
-    jfrefreshgrid_rhcw,
-    luckysheetrefreshgrid, 
-} from '../global/refresh';
-import { getdatabyselection, datagridgrowth } from '../global/getdata';
-import tooltip from '../global/tooltip';
-import editor from '../global/editor';
-import { genarate } from '../global/format';
-import method from '../global/method';
-import { getBorderInfoCompute } from '../global/border';
-import { luckysheetDrawMain } from '../global/draw';
-import locale from '../locale/locale';
-import Store from '../store';
-import { createLuckyChart, hideAllNeedRangeShow } from '../expendPlugins/chart/plugin'
 
 //, columeflowset, rowflowset
 export default function luckysheetHandler() {
@@ -4760,7 +4759,7 @@ export default function luckysheetHandler() {
             Store.devicePixelRatio * rh_height
         );
         ctx_newCanvas.lineWidth = Store.devicePixelRatio * 2;
-        ctx_newCanvas.strokeStyle = luckysheetdefaultstyle.strokeStyle;        
+        ctx_newCanvas.strokeStyle = Store.themeData.strokeStyle;        
         ctx_newCanvas.stroke();
         ctx_newCanvas.closePath();
 
@@ -4774,7 +4773,7 @@ export default function luckysheetHandler() {
             0
         );
         ctx_newCanvas.lineWidth = Store.devicePixelRatio * 2;
-        ctx_newCanvas.strokeStyle = luckysheetdefaultstyle.strokeStyle;        
+        ctx_newCanvas.strokeStyle = Store.themeData.strokeStyle;        
         ctx_newCanvas.stroke();
         ctx_newCanvas.closePath();
 

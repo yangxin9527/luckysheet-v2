@@ -1,42 +1,41 @@
 
 import defaultSetting from './config.js';
-import { common_extend } from './utils/util';
-import Store from './store';
-import server from './controllers/server';
-import luckysheetConfigsetting from './controllers/luckysheetConfigsetting';
-import sheetmanage from './controllers/sheetmanage';
-import luckysheetsizeauto from './controllers/resize';
+import { luckysheetlodingHTML, THEME_DARK, THEME_LIGHT } from './controllers/constant';
+import { initPlugins } from './controllers/expendPlugins';
+import { initialFilterHandler } from './controllers/filter';
+import { formulaBarInitial } from './controllers/formulaBar';
 import luckysheetHandler from './controllers/handler';
-import {initialFilterHandler} from './controllers/filter';
-import {initialMatrixOperation} from './controllers/matrixOperation';
-import {initialSheetBar} from './controllers/sheetBar';
-import {formulaBarInitial} from './controllers/formulaBar';
-import {rowColumnOperationInitial} from './controllers/rowColumnOperation';
-import {keyboardInitial} from './controllers/keyboard';
-import {orderByInitial} from './controllers/orderBy';
-import {initPlugins} from './controllers/expendPlugins';
+import { keyboardInitial } from './controllers/keyboard';
+import luckysheetConfigsetting from './controllers/luckysheetConfigsetting';
+import { initialMatrixOperation } from './controllers/matrixOperation';
+import { orderByInitial } from './controllers/orderBy';
+import { printInitial } from './controllers/print';
+import { rowColumnOperationInitial } from './controllers/rowColumnOperation';
+import { selectHightlightShow } from './controllers/select';
+import server from './controllers/server';
+import { initialSheetBar } from './controllers/sheetBar';
+import sheetmanage from './controllers/sheetmanage';
+import { zoomInitial } from './controllers/zoom';
+import functionlist from './function/functionlist';
+import { getcellvalue, getdatabyselection } from './global/getdata';
+import method from './global/method';
+import { jfrefreshgrid, luckysheetrefreshgrid } from './global/refresh';
+import { setcellvalue } from './global/setdata';
 import {
-    getluckysheetfile,
-    getluckysheet_select_save,
     getconfig,
+    getluckysheet_select_save,
+    getluckysheetfile,
 } from './methods/get';
 import {
     setluckysheet_select_save
 } from './methods/set';
-import { luckysheetrefreshgrid, jfrefreshgrid } from './global/refresh';
-import functionlist from './function/functionlist';
-import { luckysheetlodingHTML } from './controllers/constant';
-import { getcellvalue, getdatabyselection } from './global/getdata';
-import { setcellvalue } from './global/setdata';
-import { selectHightlightShow } from './controllers/select';
-import {zoomInitial} from './controllers/zoom';
-import {printInitial} from './controllers/print';
-import method from './global/method';
+import Store from './store';
+import { common_extend } from './utils/util';
 
 import * as api from './global/api';
 
-import flatpickr from 'flatpickr'
-import Mandarin from 'flatpickr/dist/l10n/zh.js'
+import flatpickr from 'flatpickr';
+import Mandarin from 'flatpickr/dist/l10n/zh.js';
 import { initListener } from './controllers/listener';
 
 let luckysheet = {};
@@ -59,9 +58,14 @@ luckysheet.create = function (setting) {
             Store.toJsonOptions[c] = setting[c];
         }
     }
-
     let extendsetting = common_extend(defaultSetting, setting);
-
+    const isDark = extendsetting.theme ==='dark';
+    //
+  
+    Store.themeData = {
+        theme: isDark?'dark':'light',
+        ...(isDark?THEME_DARK:THEME_LIGHT)
+    }
     let loadurl = extendsetting.loadUrl,
         menu = extendsetting.menu,
         title = extendsetting.title;
@@ -157,7 +161,9 @@ luckysheet.create = function (setting) {
 
     //loading
     $("#" + container).append(luckysheetlodingHTML());
-
+    if(Store.isDark){
+        $("#" + container).addClass('dark')
+    }
     if (loadurl == "") {
         sheetmanage.initialjfFile(menu, title);
         // luckysheetsizeauto();
@@ -242,4 +248,5 @@ luckysheet.destroy = method.destroy;
 
 export {
     luckysheet
-}
+};
+

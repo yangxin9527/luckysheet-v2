@@ -1,46 +1,42 @@
-import Store from "../store";
-import { replaceHtml, getObjType, chatatABC, luckysheetactiveCell } from "../utils/util";
-import { getSheetIndex, getluckysheet_select_save, getluckysheetfile } from "../methods/get";
 import locale from "../locale/locale";
-import method from './method';
-import formula from './formula';
-import func_methods from "./func_methods";
-import tooltip from "./tooltip";
-import json from "./json";
-import editor from "./editor";
-import luckysheetformula from './formula';
-import cleargridelement from './cleargridelement';
-import { genarate, update } from './format';
-import { setAccuracy,setcellvalue } from "./setdata";
-import { orderbydata } from "./sort";
-import { rowlenByRange } from "./getRowlen";
-import { getdatabyselection, getcellvalue } from "./getdata";
-import { luckysheetrefreshgrid, jfrefreshgrid, jfrefreshgrid_rhcw } from "./refresh";
-import { luckysheetDeleteCell, luckysheetextendtable, luckysheetdeletetable } from "./extend";
-import { isRealNull, valueIsError, isRealNum, isEditMode, hasPartMC } from "./validate";
-import { isdatetime, diff } from "./datecontroll";
+import { getSheetIndex, getluckysheetfile } from "../methods/get";
+import Store from "../store";
+import { chatatABC, getObjType, luckysheetactiveCell, replaceHtml } from "../utils/util";
 import { getBorderInfoCompute } from './border';
+import cleargridelement from './cleargridelement';
+import { diff, isdatetime } from "./datecontroll";
 import { luckysheetDrawMain } from './draw';
+import editor from "./editor";
+import { luckysheetDeleteCell, luckysheetdeletetable, luckysheetextendtable } from "./extend";
+import { default as formula, default as luckysheetformula } from './formula';
+import func_methods from "./func_methods";
+import { rowlenByRange } from "./getRowlen";
+import { getcellvalue, getdatabyselection } from "./getdata";
+import method from './method';
+import { jfrefreshgrid, jfrefreshgrid_rhcw, luckysheetrefreshgrid } from "./refresh";
+import { setcellvalue } from "./setdata";
+import { orderbydata } from "./sort";
+import tooltip from "./tooltip";
+import { hasPartMC, isEditMode, isRealNull, isRealNum } from "./validate";
 
-import server from "../controllers/server";
-import menuButton from '../controllers/menuButton';
-import selection from "../controllers/selection";
-import luckysheetConfigsetting from "../controllers/luckysheetConfigsetting";
-import luckysheetFreezen from "../controllers/freezen";
-import luckysheetsizeauto from '../controllers/resize';
-import sheetmanage from '../controllers/sheetmanage';
-import conditionformat from '../controllers/conditionformat';
-import { luckysheet_searcharray } from "../controllers/sheetSearch";
-import { selectHightlightShow, selectIsOverlap } from '../controllers/select';
-import { sheetHTML, luckysheetdefaultstyle } from '../controllers/constant';
-import { createFilterOptions } from '../controllers/filter';
-import controlHistory from '../controllers/controlHistory';
-import { zoomRefreshView, zoomNumberDomBind } from '../controllers/zoom';
-import dataVerificationCtrl from "../controllers/dataVerificationCtrl";
-import imageCtrl from '../controllers/imageCtrl';
 import dayjs from "dayjs";
-import {getRangetxt } from '../methods/get';
-import {luckysheetupdateCell} from '../controllers/updateCell';
+import conditionformat from '../controllers/conditionformat';
+import { sheetHTML } from '../controllers/constant';
+import controlHistory from '../controllers/controlHistory';
+import dataVerificationCtrl from "../controllers/dataVerificationCtrl";
+import { createFilterOptions } from '../controllers/filter';
+import luckysheetFreezen from "../controllers/freezen";
+import imageCtrl from '../controllers/imageCtrl';
+import menuButton from '../controllers/menuButton';
+import luckysheetsizeauto from '../controllers/resize';
+import { selectHightlightShow, selectIsOverlap } from '../controllers/select';
+import selection from "../controllers/selection";
+import server from "../controllers/server";
+import { luckysheet_searcharray } from "../controllers/sheetSearch";
+import sheetmanage from '../controllers/sheetmanage';
+import { luckysheetupdateCell } from '../controllers/updateCell';
+import { zoomNumberDomBind, zoomRefreshView } from '../controllers/zoom';
+import { getRangetxt } from '../methods/get';
 const IDCardReg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i;
 
 /**
@@ -5610,7 +5606,7 @@ export function getScreenshot(options = {}) {
         Store.devicePixelRatio * rh_height
     );
     ctx_newCanvas.lineWidth = Store.devicePixelRatio * 2;
-    ctx_newCanvas.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+    ctx_newCanvas.strokeStyle = Store.themeData.strokeStyle;
     ctx_newCanvas.stroke();
     ctx_newCanvas.closePath();
 
@@ -5624,7 +5620,7 @@ export function getScreenshot(options = {}) {
         0
     );
     ctx_newCanvas.lineWidth = Store.devicePixelRatio * 2;
-    ctx_newCanvas.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+    ctx_newCanvas.strokeStyle = Store.themeData.strokeStyle;
     ctx_newCanvas.stroke();
     ctx_newCanvas.closePath();
 

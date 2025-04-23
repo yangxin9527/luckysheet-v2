@@ -1,20 +1,20 @@
-import { selectHightlightShow, selectionCopyShow } from './select';
-import menuButton from './menuButton';
-import conditionformat from './conditionformat';
-import {checkProtectionLockedRangeList} from './protection';
-import editor from '../global/editor';
-import tooltip from '../global/tooltip';
-import formula from '../global/formula';
 import { getBorderInfoCompute } from '../global/border';
-import { getdatabyselection, getcellvalue, datagridgrowth } from '../global/getdata';
-import { rowlenByRange } from '../global/getRowlen';
-import { isEditMode, hasPartMC, isRealNum } from '../global/validate';
-import { jfrefreshgrid, jfrefreshgrid_pastcut } from '../global/refresh';
+import editor from '../global/editor';
 import { genarate, update } from '../global/format';
-import { getSheetIndex } from '../methods/get';
-import { replaceHtml, getObjType, luckysheetfontformat } from '../utils/util';
-import Store from '../store';
+import formula from '../global/formula';
+import { datagridgrowth, getcellvalue, getdatabyselection } from '../global/getdata';
+import { rowlenByRange } from '../global/getRowlen';
+import { jfrefreshgrid, jfrefreshgrid_pastcut } from '../global/refresh';
+import tooltip from '../global/tooltip';
+import { hasPartMC, isEditMode, isRealNum } from '../global/validate';
 import locale from '../locale/locale';
+import { getSheetIndex } from '../methods/get';
+import Store from '../store';
+import { getObjType, luckysheetfontformat, replaceHtml } from '../utils/util';
+import conditionformat from './conditionformat';
+import menuButton from './menuButton';
+import { checkProtectionLockedRangeList } from './protection';
+import { selectHightlightShow, selectionCopyShow } from './select';
 
 const selection = {
     clearcopy: function (e) {
@@ -510,30 +510,29 @@ const selection = {
             cpdata += "</tr>";
         }
         cpdata = '<table data-type="luckysheet_copy_action_table">' + colgroup + cpdata + '</table>';
-
+        
         Store.iscopyself = true;
-
         if (!clipboardData) {
-            // let textarea = $("#luckysheet-copy-content");
-            // textarea.html(cpdata);
-            // textarea.focus();
-            // textarea.select();
-            // document.execCommand("selectAll");
-            // document.execCommand("Copy");
+            let textarea = $("#luckysheet-copy-content");
+            textarea.html(cpdata);
+            textarea.focus();
+            textarea.select();
+            document.execCommand("selectAll");
+            document.execCommand("Copy");
 
             // 等50毫秒，keyPress事件发生了再去处理数据
-            // setTimeout(function () {
-            //     $("#luckysheet-copy-content").blur();
-            // }, 10);
-
-            var oInput = document.createElement('input');
-            oInput.setAttribute('readonly', 'readonly');
-            oInput.value = cpdata;
-            document.body.appendChild(oInput);
-            oInput.select(); // 选择对象
-            document.execCommand("Copy");
-            oInput.style.display='none';
-            document.body.removeChild(oInput);
+            setTimeout(function () {
+                $("#luckysheet-copy-content").blur();
+            }, 10);
+            console.log("=======cpdata:", cpdata)
+            // var oInput = document.createElement('input');
+            // oInput.setAttribute('readonly', 'readonly');
+            // oInput.value = cpdata;
+            // document.body.appendChild(oInput);
+            // oInput.select(); // 选择对象
+            // document.execCommand("Copy");
+            // oInput.style.display='none';
+            // document.body.removeChild(oInput);
         }
         else {
             clipboardData.setData('Text', cpdata);

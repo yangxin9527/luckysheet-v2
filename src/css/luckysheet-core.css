@@ -4,7 +4,19 @@
     overflow: hidden;
 }
  */
-
+:root{
+  --text-primary: #34322d;
+  --background-gray-main: #f8f8f7;
+  --background-white-main: #ffffff;
+  --border:#dfdfdf;
+}
+.dark {
+    --text-primary: #dadada;
+    --background-gray-main: #272728;
+    --background-white-main: #161618;
+    --border:#313132 ;
+   
+}
 
 ::-webkit-scrollbar-track {
     background-color: transparent;
@@ -29,7 +41,7 @@
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     border: 1px solid #e5e5e5;
-    background: #fff;
+    background: var(--background-white-main);
 }
 
 .luckysheet * {
@@ -322,7 +334,7 @@
 
 .luckysheet-toolbar-combo-button-input:focus {
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-    background: #fff;
+    background: var(--background-white-main);
     outline: none;
     border: 1px solid #0188fb !important;
 }
@@ -331,7 +343,7 @@
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--border);
     border-top: 1px solid #c0c0c0;
     font-size: 13px;
     height: 25px;
@@ -750,8 +762,8 @@
 }
 
 .luckysheet-rightgclick-menu-sub .sp-container {
-    background-color: #ffffff;
-    border: solid 1px #ffffff;
+    background-color: var(--background-white-main);
+    border: solid 1px var(--background-white-main);
 }
 
 #luckysheet-icon-text-color-menu-menuButton .sp-palette-container,
@@ -769,7 +781,7 @@
 .luckysheet-wa-calculate {
     height: 28px;
     /*padding: 10px 8px;*/
-    background: #fff;
+    background: var(--background-white-main);
     position: relative;
     padding-right: 44px;
     border-bottom: 1px solid #d4d4d4;
@@ -802,7 +814,7 @@
     font-family: arial, sans, sans-serif;
     font-size: 14px;
     line-height: 14px;
-    background-color: #ffffff;
+    background-color: var(--background-white-main);
     padding: 2px 5px;
 }
 
@@ -871,7 +883,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    /*background-color: #fff;*/
+    /*background-color: var(--background-white-main);*/
     text-align: center;
     left: 156px;
     color: #d6d6d6;
@@ -914,7 +926,7 @@
 
 .luckysheet-sta-c {
     height: 22px;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     border-top: 1px solid #e1e1e1;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -1135,7 +1147,7 @@ div.luckysheet-sheets-m:hover {
 }
 
 .luckysheet-sheet-area div.luckysheet-sheets-item .luckysheet-sheets-item-name[contenteditable="true"] {
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--border);
     display: inline-block;
     height: 18px;
     line-height: 18px;
@@ -1162,7 +1174,7 @@ div.luckysheet-sheets-m:hover {
     line-height: 29px;
     background-color: #efefef;
     /* border-color: #aaa; */
-    border-top-color: #fff;
+    border-top-color: var(--background-white-main);
     color: #222;
     /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
     cursor: default;
@@ -1184,7 +1196,7 @@ div.luckysheet-sheets-m:hover {
     bottom: 27px;
     left: 0;
     min-width: 200px;
-    background-color: #FFFFFF !important;
+    background-color: var(--background-white-main) !important;
     overflow: hidden;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -1209,7 +1221,7 @@ div.luckysheet-sheets-m:hover {
 }
 
 .luckysheet-grid-window-2 {
-    /*background-color: #fff !important;*/
+    /*background-color: var(--background-white-main) !important;*/
     height: 100%;
     width: 100%;
     outline: none;
@@ -1225,13 +1237,14 @@ div.luckysheet-sheets-m:hover {
 .luckysheet-left-top {
     width: 44.5px;
     height: 18.5px;
-    border: solid 0 #dfdfdf;
+    border: solid 1px var(--border);
     position: relative;
     padding-top: 0;
     border-width: 0 1px 1px 0;
     margin: -1px 0 0 -1px;
     padding-left: 0;
     cursor: pointer;
+    background: var(--background-white-main);
 }
 
 .luckysheet-cols-h-c {
@@ -1244,7 +1257,7 @@ div.luckysheet-sheets-m:hover {
     outline-style: none;
     position: relative;
     -webkit-user-select: none;
-    background: #f3f3f2;
+    background: var(--background-white-main);
 }
 
 .luckysheet-rows-h {
@@ -1258,7 +1271,7 @@ div.luckysheet-sheets-m:hover {
     cursor: default;
     /*height: 472px;*/
     width: 38px;
-    background: #f3f3f2;
+    background: var(--background-white-main);
 }
 
 .luckysheet-cols-menu-btn {
@@ -1350,7 +1363,7 @@ div.luckysheet-sheets-m:hover {
     position: absolute;
     cursor: pointer;
     border: 0 solid;
-    border-color: #dfdfdf;
+    border-color: var(--border);
     display: inline-block;
     min-height: 19px;
     touch-action: manipulation;
@@ -1485,7 +1498,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     position: absolute;
     cursor: pointer;
     border: 0 solid;
-    border-color: #dfdfdf;
+    border-color: var(--border);
     border-bottom-width: 1px;
     touch-action: manipulation;
 }
@@ -1545,7 +1558,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     background-color: white;
     width: 15px;
     height: 15px;
-    background-color: #F3F3F2;
+    background-color: var(--background-white-main);
     /*#E7E7E7;*/
     border-collapse: collapse;
     position: relative;
@@ -1556,10 +1569,10 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 
 .luckysheet-scrollbars,
 .luckysheet-menu {
-    scrollbar-base-color: #FFFFFF;
+    scrollbar-base-color: var(--background-white-main);
     scrollbar-track-color: #E7E7E7;
-    scrollbar-darkshadow-color: #FFFFFF;
-    scrollbar-3dlight-color: #FFFFFF;
+    scrollbar-darkshadow-color: var(--background-white-main);
+    scrollbar-3dlight-color: var(--background-white-main);
     scrollbar-arrow-color: #757778;
     scrollbar-shadow-color: #BEC1C4;
     scrollbar-highlight-color: #BEC1C4;
@@ -1577,7 +1590,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     height: 1px;
     width: 1px;
 }
-
+/* 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button {
     height: 0;
     width: 0
@@ -1592,7 +1605,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 }
 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button {
-    border: 1px solid #d9d9d9
+    border: 1px solid var(--border);
 }
 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button:horizontal {
@@ -1612,11 +1625,11 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     width: 15px;
     padding-left: 1px;
     background-clip: border-box;
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--border);
     border-width: 1px 0 0 0;
     box-shadow: none;
     background-color: #f8f8f8;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid var(--border);
 }
 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button:horizontal:increment:hover {
@@ -1628,11 +1641,11 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 }
 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button:horizontal:decrement {
-    border-left: 1px solid #d9d9d9;
-    border-right: 1px solid #d9d9d9;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
     background: no-repeat url("waffle_sprite.png") -283px -62px;
     width: 17px;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid var(--border);
 }
 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button:horizontal:hover {
@@ -1646,7 +1659,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button:vertical:increment {
     padding-top: 1px;
     background: no-repeat url("waffle_sprite.png") -531px -24px;
-    border-left: 1px solid #d9d9d9;
+    border-left: 1px solid var(--border);
     height: 15px
 }
 
@@ -1659,9 +1672,9 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 }
 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button:vertical:decrement {
-    border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
-    border-left: 1px solid #d9d9d9;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-left: 1px solid var(--border);
     background: no-repeat url("waffle_sprite.png") -631px -27px;
     height: 17px
 }
@@ -1672,7 +1685,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 
 .luckysheet-scrollbar-ltr::-webkit-scrollbar-button:vertical:decrement:active {
     background: no-repeat url("waffle_sprite.png") -776px -28px
-}
+} */
 
 .luckysheet-scrollbar-x {
     bottom: 0px;
@@ -1695,7 +1708,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     position: relative;
     touch-action: manipulation;
     overflow: hidden;
-    /*background: #fff;*/
+    /*background: var(--background-white-main);*/
 }
 
 .luckysheet-cell-flow-clip {
@@ -1719,7 +1732,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 
 .luckysheet-cell-sheettable {
     position: relative;
-    /*background-color: #fff;*/
+    /*background-color: var(--background-white-main);*/
     text-align: left;
     font-size: 11pt;
     color: #000000;
@@ -1791,7 +1804,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     position: absolute;
     pointer-events: none;
     z-index: 14;
-    /*border:1px solid #fff;*/
+    /*border:1px solid var(--background-white-main);*/
     margin: 0px 0 0 0px;
     background: rgba(0, 80, 208, 0.15);
     display: none;
@@ -1873,31 +1886,31 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     z-index: 18;
     cursor: move;
     opacity: 0.9;
-    /*border: 1px solid #fff;*/
+    /*border: 1px solid var(--background-white-main);*/
 }
 
 .luckysheet-formula-functionrange-highlight .luckysheet-selection-copy-top {
     top: -2px;
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-top: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 
 .luckysheet-formula-functionrange-highlight .luckysheet-selection-copy-right {
     right: -2px;
-    border-left: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-right: 2px solid var(--background-white-main);
 }
 
 .luckysheet-formula-functionrange-highlight .luckysheet-selection-copy-bottom {
     bottom: -2px;
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-top: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 
 .luckysheet-formula-functionrange-highlight .luckysheet-selection-copy-left {
     left: -2px;
-    border-left: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-right: 2px solid var(--background-white-main);
 }
 
 .luckysheet-formula-functionrange-highlight .luckysheet-selection-copy-hc {
@@ -1934,7 +1947,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 .luckysheet-formula-functionrange-highlight .luckysheet-highlight {
     position: absolute;
     z-index: 19;
-    border: 1px solid #fff;
+    border: 1px solid var(--background-white-main);
     background: #0188fb;
     width: 6px;
     height: 6px;
@@ -1973,7 +1986,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 
 .luckysheet-cs-inner-border {
     pointer-events: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--background-white-main);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -1988,7 +2001,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     bottom: -5px;
     cursor: crosshair;
     background-color: #0188fb;
-    border: solid 1px #fff;
+    border: solid 1px var(--background-white-main);
     z-index: 16;
     pointer-events: auto;
     right: -5px;
@@ -1997,11 +2010,11 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 .luckysheet-cs-draghandle {
     position: absolute;
     cursor: move;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     opacity: .01;
     z-index: 15;
     pointer-events: auto;
-    border: 2px solid #fff;
+    border: 2px solid var(--background-white-main);
 }
 
 .luckysheet-cs-draghandle-top {
@@ -2049,7 +2062,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     width: 16px;
     height: 16px;
     border: 0.5px solid rgba(0, 0, 0, 0.15);
-    background-color: #ffffff;
+    background-color: var(--background-white-main);
     box-sizing: border-box;
     border-radius: 50%;
 }
@@ -2097,12 +2110,12 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 }
 
 .luckysheet-scrollbars::-webkit-scrollbar-track {
-    background-color: #FFFFFF;
-    border: 1px solid #d9d9d9;
+    background-color: var(--background-white-main);
+    border: 1px solid var(--border);
 }
 
 .luckysheet-scrollbar-x::-webkit-scrollbar-track {
-    border-left: 1px solid #d9d9d9;
+    border-left: 1px solid var(--border);
     border-right: none;
 }
 
@@ -2114,7 +2127,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 .luckysheet-scrollbars::-webkit-scrollbar {
     width: 12px;
     height: 12px;
-    background-color: #FFFFFF;
+    background-color: var(--background-white-main);
     /*border:0 none;*/
 }
 
@@ -2212,7 +2225,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     -moz-transition: opacity 0.218s;
     -o-transition: opacity 0.218s;
     transition: opacity 0.218s;
-    background: #fff;
+    background: var(--background-white-main);
     border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, .2);
     cursor: default;
@@ -2330,7 +2343,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--border);
     border-top: 1px solid #c0c0c0;
     font-size: 13px;
 }
@@ -2354,11 +2367,11 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
 
 .luckysheet-filter-menu .luckysheet-filter-byvalue .luckysheet-cols-menuitem:hover,
 .luckysheet-filter-menu .luckysheet-pivotTableFilter-byvalue .luckysheet-cols-menuitem:hover {
-    background: #fff;
+    background: var(--background-white-main);
 }
 
 .luckysheet-filter-menu .luckysheet-cols-menuitem:last-child:hover {
-    background: #fff;
+    background: var(--background-white-main);
 }
 
 .luckysheet-filter-menu .luckysheet-cols-menuitem:last-child,
@@ -2406,7 +2419,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--border);
     border-top: 1px solid #c0c0c0;
     font-size: 13px;
 }
@@ -2422,7 +2435,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--border);
     border-top: 1px solid #c0c0c0;
     font-size: 13px;
 }
@@ -2640,7 +2653,7 @@ fieldset[disabled] a.btn {
 
 .btn-default {
     color: #333;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     border-color: #ccc;
 }
 
@@ -2694,18 +2707,18 @@ fieldset[disabled] .btn-default:focus,
 .btn-default.disabled.focus,
 .btn-default[disabled].focus,
 fieldset[disabled] .btn-default.focus {
-    background-color: #fff;
+    background-color: var(--background-white-main);
     border-color: #ccc;
 }
 
 .btn-default .badge {
-    color: #fff;
+    color: var(--background-white-main);
     background-color: #333;
 }
 
 
 .btn-primary {
-    color: #ffffff;
+    color: var(--background-white-main);
     /* background-color: #337ab7; */
     background-color: #2D7FF9;
     /* border-color: #2e6da4; */
@@ -2714,14 +2727,14 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-primary:focus,
 .btn-primary.focus {
-    color: #ffffff;
+    color: var(--background-white-main);
     background-color: #286090;
     /* border-color: #122b40; */
     border-color:transparent;
 }
 
 .btn-primary:hover {
-    color: #ffffff;
+    color: var(--background-white-main);
     /* background-color: #286090; */
     background-color: #5391ff;
     /* border-color: #204d74; */
@@ -2731,7 +2744,7 @@ fieldset[disabled] .btn-default.focus {
 .btn-primary:active,
 .btn-primary.active,
 .open>.dropdown-toggle.btn-primary {
-    color: #ffffff;
+    color: var(--background-white-main);
     /* background-color: #286090; */
     background-color: #5391ff;
     /* border-color: #204d74; */
@@ -2746,7 +2759,7 @@ fieldset[disabled] .btn-default.focus {
 .btn-primary:active.focus,
 .btn-primary.active.focus,
 .open>.dropdown-toggle.btn-primary.focus {
-    color: #ffffff;
+    color: var(--background-white-main);
     background-color: #204d74;
     /* border-color: #122b40; */
     border-color:transparent;
@@ -2783,7 +2796,7 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-primary .badge {
     color: #337ab7;
-    background-color: #ffffff;
+    background-color: var(--background-white-main);
 }
 
 .btn-primary,
@@ -2806,20 +2819,20 @@ fieldset[disabled] .btn-primary.active {
 
 
 .btn-danger {
-    color: #fff;
+    color: var(--background-white-main);
     background-color: #d9534f;
     border-color: #d43f3a;
 }
 
 .btn-danger:focus,
 .btn-danger.focus {
-    color: #fff;
+    color: var(--background-white-main);
     background-color: #c9302c;
     border-color: #761c19;
 }
 
 .btn-danger:hover {
-    color: #fff;
+    color: var(--background-white-main);
     background-color: #c9302c;
     border-color: #ac2925;
 }
@@ -2827,7 +2840,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-danger:active,
 .btn-danger.active,
 .open>.dropdown-toggle.btn-danger {
-    color: #fff;
+    color: var(--background-white-main);
     background-color: #c9302c;
     border-color: #ac2925;
 }
@@ -2841,7 +2854,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-danger:active.focus,
 .btn-danger.active.focus,
 .open>.dropdown-toggle.btn-danger.focus {
-    color: #fff;
+    color: var(--background-white-main);
     background-color: #ac2925;
     border-color: #761c19;
 }
@@ -2867,7 +2880,7 @@ fieldset[disabled] .btn-danger.focus {
 
 .btn-danger .badge {
     color: #d9534f;
-    background-color: #fff;
+    background-color: var(--background-white-main);
 }
 
 .luckysheet-cols-change-size,
@@ -2905,7 +2918,7 @@ fieldset[disabled] .btn-danger.focus {
     position: absolute;
     z-index: 15;
     background: rgba(76, 76, 76, 0.8);
-    color: #fff;
+    color: var(--background-white-main);
     padding: 2px 3px;
     border-radius: 3px;
     transition: all 0.3s;
@@ -3025,7 +3038,7 @@ fieldset[disabled] .btn-danger.focus {
     -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
     -moz-box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
     box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
-    background: #fff;
+    background: var(--background-white-main);
     background-clip: padding-box;
     border: 1px solid #acacac;
     border: 1px solid rgba(0, 0, 0, .333);
@@ -3040,7 +3053,7 @@ fieldset[disabled] .btn-danger.focus {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #fff;
+    background: var(--background-white-main);
     opacity: 0.6;
     display: none;
     left: 0px;
@@ -3051,7 +3064,7 @@ fieldset[disabled] .btn-danger.focus {
 
 
 .luckysheet-modal-dialog-title {
-    background-color: #fff;
+    background-color: var(--background-white-main);
     color: #000;
     cursor: default;
     font-size: 16px;
@@ -3127,7 +3140,7 @@ fieldset[disabled] .btn-danger.focus {
     position: absolute;
     height: 6px;
     width: 6px;
-    background: #ffffff;
+    background: var(--background-white-main);
     border: 2px solid #0188fb;
     pointer-events: all;
     border-radius: 6px;
@@ -3208,7 +3221,7 @@ fieldset[disabled] .btn-danger.focus {
     outline: 0;
     border: 1px solid #B6B6B6;
     display: block;
-    background: #fff;
+    background: var(--background-white-main);
     margin-bottom: 3px;
     cursor: pointer;
     transition: all 0.2s;
@@ -3242,7 +3255,7 @@ fieldset[disabled] .btn-danger.focus {
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;
-    color: #fff;
+    color: var(--background-white-main);
     position: absolute;
     right: 0px;
     top: 0px;
@@ -3272,7 +3285,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 .luckysheet-modal-dialog-content {
-    background-color: #fff;
+    background-color: var(--background-white-main);
     line-height: 1.4em;
     word-wrap: break-word;
 }
@@ -3339,18 +3352,18 @@ fieldset[disabled] .btn-danger.focus {
     padding: 0px 4px;
     font-size: 12px;
     height: 15px;
-    background: #fff;
+    background: var(--background-white-main);
     /* transition: all 0.1s; */
 }
 
 .luckysheet-filter-options:hover {
-    color: #fff;
-    border: 1px solid #fff;
+    color: var(--background-white-main);
+    border: 1px solid var(--background-white-main);
     background: #897BFF;
 }
 
 .luckysheet-filter-options-active {
-    color: #fff;
+    color: var(--background-white-main);
     border: 1px solid #897BFF;
     background: #897BFF;
 }
@@ -3461,11 +3474,11 @@ fieldset[disabled] .btn-danger.focus {
     text-align: center;
     display: inline-block;
     cursor: pointer;
-    border: 1px solid #fff;
+    border: 1px solid var(--background-white-main);
     border-bottom: none;
     height: 24px;
     line-height: 24px;
-    background: #fff;
+    background: var(--background-white-main);
     color: #777;
 }
 
@@ -3506,7 +3519,7 @@ fieldset[disabled] .btn-danger.focus {
 .luckysheet-datavisual-quick-menu>div {
     text-align: left;
     padding: 4px 4px;
-    border-right: 3px solid #fff;
+    border-right: 3px solid var(--background-white-main);
     color: #777;
     cursor: pointer;
     line-height: 1.4em;
@@ -3541,8 +3554,8 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 .luckysheet-datavisual-range-container {
-    background: #fff;
-    border: 1px solid #d9d9d9;
+    background: var(--background-white-main);
+    border: 1px solid var(--border);
     border-top: 1px solid #c0c0c0;
     min-width: 20px;
     width: 100%;
@@ -3643,7 +3656,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 /*.luckysheet-datavisual-right {
-    background: #fff;
+    background: var(--background-white-main);
 }
 
 .luckysheet-datavisual-right-chart {
@@ -3680,8 +3693,8 @@ fieldset[disabled] .btn-danger.focus {
     -o-transition: visibility 0, opacity .13s ease-in;
     transition: visibility 0, opacity .13s ease-in;
     background-color: #2a2a2a;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--background-white-main);
+    color: var(--background-white-main);
     cursor: default;
     display: block;
     font-size: 11px;
@@ -3739,7 +3752,7 @@ fieldset[disabled] .btn-danger.focus {
 
 .jfk-tooltip-arrowdown .jfk-tooltip-arrowimplbefore,
 .jfk-tooltip-arrowup .jfk-tooltip-arrowimplbefore {
-    border-color: #fff transparent;
+    border-color: var(--background-white-main) transparent;
     left: -6px;
 }
 
@@ -3779,7 +3792,7 @@ fieldset[disabled] .btn-danger.focus {
     position: relative;
     width: 97%;
     border: 1px solid #E5E5E5;
-    border-top: 1px solid #fff;
+    border-top: 1px solid var(--background-white-main);
     display: none;
     color: #505050;
     padding-bottom: 20px;
@@ -3787,8 +3800,8 @@ fieldset[disabled] .btn-danger.focus {
 
 .luckysheet-datavisual-config-input,
 .luckysheet-datavisual-config-input-no {
-    background: #fff;
-    border: 1px solid #d9d9d9;
+    background: var(--background-white-main);
+    border: 1px solid var(--border);
     border-top: 1px solid #c0c0c0;
     min-width: 50px;
     width: 90%;
@@ -3989,7 +4002,7 @@ fieldset[disabled] .btn-danger.focus {
 
 .luckysheet-datavisual-skin-item .luckysheet-datavisual-skin-cover {
     background-color: rgba(0, 0, 0, 0.4);
-    color: #FFFFFF;
+    color: var(--background-white-main);
     font-size: 14px;
     height: 30%;
     /*opacity: 0;*/
@@ -4096,7 +4109,7 @@ fieldset[disabled] .btn-danger.focus {
     margin-top: 5px;
     width: 90px;
     border: 2px solid #F5F5F5;
-    background: #fff;
+    background: var(--background-white-main);
     text-align: center;
     padding: 5px 0px;
     user-select: none;
@@ -4252,7 +4265,7 @@ fieldset[disabled] .btn-danger.focus {
 
 .luckysheet-modal-dialog-slider .luckysheet-modal-dialog-slider-title {
     background: #333;
-    color: #fff;
+    color: var(--background-white-main);
     height: 39px;
     width: 100%;
     position: absolute;
@@ -4317,7 +4330,7 @@ fieldset[disabled] .btn-danger.focus {
     margin-left: 5px;
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
-    background: #fff;
+    background: var(--background-white-main);
 }
 
 .luckysheet-modal-dialog-slider-list-title {
@@ -4332,7 +4345,7 @@ fieldset[disabled] .btn-danger.focus {
     width: 228px;
     height: 25px;
     user-select: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--background-white-main);
 }
 
 .luckysheet-modal-dialog-slider-list .luckysheet-modal-dialog-slider-list-item:hover {
@@ -4474,7 +4487,7 @@ fieldset[disabled] .btn-danger.focus {
     border: 1px solid #e5e5e5;
     user-select: none;
     overflow-y: auto;
-    background: #fff;
+    background: var(--background-white-main);
 }
 
 .luckysheet-modal-dialog-slider-config-list .luckysheet-modal-dialog-slider-config-item {
@@ -4544,7 +4557,7 @@ fieldset[disabled] .btn-danger.focus {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    background: #fff;
+    background: var(--background-white-main);
     border: 1px dotted #000;
     color: #000;
     font-size: 14px;
@@ -4564,7 +4577,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 .luckysheet-modal-dialog-slider-chart .luckysheet-modal-dialog-slider-content {
-    background: #fff;
+    background: var(--background-white-main);
 }
 
 #luckysheet-dialog-pivotTable-clearitem {
@@ -4763,7 +4776,7 @@ fieldset[disabled] .btn-danger.focus {
     font-family: arial, sans, sans-serif;
     font-size: 14px;
     line-height: 14px;
-    background-color: #ffffff;
+    background-color: var(--background-white-main);
     padding: 0px 5px;
 }
 
@@ -4803,14 +4816,14 @@ fieldset[disabled] .btn-danger.focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     color: #535353;
     font-size: 12px;
-    background: #fff;
+    background: var(--background-white-main);
     z-index: 1003;
     width: 300px;
     display: none;
 }
 
 .luckysheet-formula-search-c .luckysheet-formula-search-item {
-    background: #fff;
+    background: var(--background-white-main);
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -4845,7 +4858,7 @@ fieldset[disabled] .btn-danger.focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     color: #535353;
     font-size: 12px;
-    background: #fff;
+    background: var(--background-white-main);
     z-index: 1003;
     width: 300px;
 }
@@ -4938,7 +4951,7 @@ fieldset[disabled] .btn-danger.focus {
 
 .luckysheetLoaderGif {
     /*换用GIF loading*/
-    width: 8em;
+    /* width: 8em;
     height: 8em;
     position: absolute;
     top: 50%;
@@ -4951,7 +4964,7 @@ fieldset[disabled] .btn-danger.focus {
     background-image: url(loading.gif);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% 100%;
+    background-size: 100% 100%; */
 }
 
 /*.luckysheetLoaderGif>img{
@@ -5089,7 +5102,7 @@ fieldset[disabled] .btn-danger.focus {
     /*    left: 50%; 
     top:20px; */
     background: rgba(0, 0, 0, 0.65);
-    color: #fff;
+    color: var(--background-white-main);
     font-size: 18px;
     padding: 20px 100px;
     text-align: center;
@@ -5106,7 +5119,7 @@ fieldset[disabled] .btn-danger.focus {
     right: 10px;
     top: 50%;
     margin-top: -12px;
-    border: 1px solid #fff;
+    border: 1px solid var(--background-white-main);
     border-radius: 4px;
     padding: 2px 4px;
     cursor: pointer;
@@ -5167,7 +5180,7 @@ fieldset[disabled] .btn-danger.focus {
 #luckysheet-search-replace .tabBox span.on {
     background-color: #8C89FE;
     border-color: #726EFE;
-    color: #fff;
+    color: var(--background-white-main);
 }
 
 #luckysheet-search-replace .ctBox {
@@ -5224,7 +5237,7 @@ fieldset[disabled] .btn-danger.focus {
     height: 30px;
     line-height: 29px;
     padding: 0 5px;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     border-bottom: 1px solid #d4d4d4;
     box-sizing: border-box;
     position: sticky;
@@ -5259,7 +5272,7 @@ fieldset[disabled] .btn-danger.focus {
 
 #luckysheet-search-replace #searchAllbox .boxMain .boxItem.on {
     background-color: #8C89FE;
-    color: #fff;
+    color: var(--background-white-main);
 }
 
 #luckysheet-search-replace #searchAllbox .boxMain .boxItem span {
@@ -5345,7 +5358,7 @@ fieldset[disabled] .btn-danger.focus {
 
 #formulaTypeList .listBox.on {
     background-color: #8C89FE;
-    color: #fff;
+    color: var(--background-white-main);
 }
 
 #formulaTypeList .listBox span:nth-of-type(1) {
@@ -5646,7 +5659,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 #luckysheet-administerRule-dialog .ruleBox .ruleList .listBox .item.on .ruleName {
-    color: #fff;
+    color: var(--background-white-main);
 }
 
 #luckysheet-administerRule-dialog .ruleBox .ruleList .listBox .item .format {
@@ -5673,7 +5686,7 @@ fieldset[disabled] .btn-danger.focus {
     float: left;
     margin-left: 10px;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: var(--background-white-main);
 }
 
 #luckysheet-administerRule-dialog .ruleBox .ruleList .listBox .item .ruleRange input {
@@ -5718,7 +5731,7 @@ fieldset[disabled] .btn-danger.focus {
 
 .luckysheet-newEditorRule-dialog .ruleTypeBox .ruleTypeItem.on {
     background-color: #7C79FE;
-    color: #fff;
+    color: var(--background-white-main);
 }
 
 .luckysheet-newEditorRule-dialog .ruleTypeBox .ruleTypeItem .icon {
@@ -5825,7 +5838,7 @@ fieldset[disabled] .btn-danger.focus {
     width: 164px;
     max-height: 150px;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     border: 1px solid #e5e5e5;
     position: absolute;
     left: 80px;
@@ -5837,12 +5850,12 @@ fieldset[disabled] .btn-danger.focus {
 
 .luckysheet-newEditorRule-dialog .iconsBox ul li {
     padding: 5px 10px;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     cursor: pointer;
 }
 
 .luckysheet-newEditorRule-dialog .iconsBox ul li:hover {
-    background-color: #dfdfdf;
+    background-color: var(--border);
 }
 
 .luckysheet-newEditorRule-dialog .iconsBox ul li div {
@@ -5855,7 +5868,7 @@ fieldset[disabled] .btn-danger.focus {
 /*条件格式 图标集弹框*/
 #luckysheet-CFicons-dialog .box {
     padding: 10px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid var(--border);
     font-size: 14px;
 }
 
@@ -5885,12 +5898,12 @@ fieldset[disabled] .btn-danger.focus {
     width: 125px;
     height: 20px;
     padding: 2.5px 10px;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     cursor: pointer;
 }
 
 #luckysheet-CFicons-dialog .box .list .item:hover {
-    background-color: #dfdfdf;
+    background-color: var(--border);
 }
 
 #luckysheet-CFicons-dialog .box .list .item div {
@@ -5907,7 +5920,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 #luckysheet-modal-dialog-slider-alternateformat .luckysheet-modal-dialog-slider-content {
-    background-color: #fff;
+    background-color: var(--background-white-main);
     overflow-y: scroll;
 }
 
@@ -5980,7 +5993,7 @@ fieldset[disabled] .btn-danger.focus {
     display: inline-block;
     width: 36px;
     padding: 2px;
-    border: 2px solid #fff;
+    border: 2px solid var(--background-white-main);
     box-sizing: border-box;
     margin-right: 4px;
     margin-bottom: 4px;
@@ -6174,7 +6187,7 @@ fieldset[disabled] .btn-danger.focus {
     border-radius: 5px;
     text-align: center;
     font-size: 14px;
-    color: #fff;
+    color: var(--background-white-main);
     background-color: #8C89FE;
     float: right;
     cursor: pointer;
@@ -6260,7 +6273,7 @@ fieldset[disabled] .btn-danger.focus {
 
 /*定位*/
 #luckysheet-locationCell-dialog .listbox {
-    border: 1px solid #dfdfdf;
+    border: 1px solid var(--border);
     padding: 10px;
     font-size: 14px;
     color: #000;
@@ -6312,12 +6325,12 @@ fieldset[disabled] .btn-danger.focus {
 #luckysheet-moreFormat-dialog .listbox .listItem {
     height: 30px;
     padding: 0 20px 0 10px;
-    border-bottom: 1px solid #dfdfdf;
+    border-bottom: 1px solid var(--border);
 }
 
 #luckysheet-moreFormat-dialog .listbox .listItem.on {
     background-color: #7C79FE;
-    color: #fff;
+    color: var(--background-white-main);
 }
 
 #luckysheet-moreFormat-dialog .listbox .listItem .name {
@@ -6332,7 +6345,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 #luckysheet-moreFormat-dialog .listbox .listItem.on .value {
-    color: #fff;
+    color: var(--background-white-main);
 }
 
 /*分列*/
@@ -6354,7 +6367,7 @@ fieldset[disabled] .btn-danger.focus {
 
 #luckysheet-splitColumn-dialog .box .boxMain {
     padding: 5px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid var(--border);
 }
 
 #luckysheet-splitColumn-dialog .box input[type="checkbox"] {
@@ -6527,7 +6540,7 @@ fieldset[disabled] .btn-danger.focus {
     -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
     -moz-box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
     box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
-    background: #fff;
+    background: var(--background-white-main);
     background-clip: padding-box;
     border: 1px solid #acacac;
     border: 1px solid rgba(0, 0, 0, .333);
@@ -6542,7 +6555,7 @@ fieldset[disabled] .btn-danger.focus {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #fff;
+    background: var(--background-white-main);
     opacity: 0.6;
     display: none;
     left: 0px;
@@ -6553,7 +6566,7 @@ fieldset[disabled] .btn-danger.focus {
 
 
 .luckysheet-modal-dialog-title {
-    background-color: #fff;
+    background-color: var(--background-white-main);
     color: #000;
     cursor: default;
     font-size: 16px;
@@ -6597,7 +6610,7 @@ fieldset[disabled] .btn-danger.focus {
     position: absolute;
     height: 6px;
     width: 6px;
-    background: #ffffff;
+    background: var(--background-white-main);
     border: 2px solid #85c0fc;
     pointer-events: all;
     border-radius: 6px;
@@ -6673,7 +6686,7 @@ fieldset[disabled] .btn-danger.focus {
     outline: 0;
     border: 1px solid #B6B6B6;
     display: block;
-    background: #fff;
+    background: var(--background-white-main);
     margin-bottom: 3px;
     cursor: pointer;
     transition: all 0.2s;
@@ -6707,7 +6720,7 @@ fieldset[disabled] .btn-danger.focus {
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;
-    color: #fff;
+    color: var(--background-white-main);
     position: absolute;
     right: 0px;
     top: 0px;
@@ -6736,7 +6749,7 @@ fieldset[disabled] .btn-danger.focus {
 
 #luckysheet-modal-dialog-cropping::before{
     content: "";
-    outline: 1px solid #fff;
+    outline: 1px solid var(--background-white-main);
     position: absolute;
     left: 33.3%;
     right: 33.3%;
@@ -6747,7 +6760,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 #luckysheet-modal-dialog-cropping::after{
     content: "";
-    outline: 1px solid #fff;
+    outline: 1px solid var(--background-white-main);
     position: absolute;
     left: 0;
     right: 0;
@@ -6813,16 +6826,16 @@ fieldset[disabled] .btn-danger.focus {
     height: 4px;
     left: 0;
     top: 0;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-right: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .lt::after{
     width: 4px;
     height: 14px;
     left: 0;
     top: 4px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-right: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .mt{
     left: 50%;
@@ -6834,9 +6847,9 @@ fieldset[disabled] .btn-danger.focus {
     height: 4px;
     left: -11px;
     top: 0;
-    border-left: 2px solid #fff;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-right: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .rt{
     right: 0;
@@ -6848,16 +6861,16 @@ fieldset[disabled] .btn-danger.focus {
     height: 4px;
     right: 0;
     top: 0;
-    border-left: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .rt::after{
     width: 4px;
     height: 14px;
     right: 0;
     top: 4px;
-    border-left: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .lm{
     left: 0;
@@ -6869,9 +6882,9 @@ fieldset[disabled] .btn-danger.focus {
     height: 18px;
     left: 0;
     top: -11px;
-    border-right: 2px solid #fff;
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-right: 2px solid var(--background-white-main);
+    border-top: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .rm{
     right: 0;
@@ -6883,9 +6896,9 @@ fieldset[disabled] .btn-danger.focus {
     height: 18px;
     right: 0;
     top: -11px;
-    border-left: 2px solid #fff;
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-top: 2px solid var(--background-white-main);
+    border-bottom: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .lb{
     left: 0;
@@ -6897,16 +6910,16 @@ fieldset[disabled] .btn-danger.focus {
     height: 4px;
     left: 0;
     bottom: 0;
-    border-right: 2px solid #fff;
-    border-top: 2px solid #fff;
+    border-right: 2px solid var(--background-white-main);
+    border-top: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .lb::after{
     width: 4px;
     height: 14px;
     left: 0;
     bottom: 4px;
-    border-right: 2px solid #fff;
-    border-top: 2px solid #fff;
+    border-right: 2px solid var(--background-white-main);
+    border-top: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .rb{
     right: 0;
@@ -6918,16 +6931,16 @@ fieldset[disabled] .btn-danger.focus {
     height: 4px;
     right: 0;
     bottom: 0;
-    border-left: 2px solid #fff;
-    border-top: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-top: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .rb::after{
     width: 4px;
     height: 14px;
     right: 0;
     bottom: 4px;
-    border-left: 2px solid #fff;
-    border-top: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-top: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-cropping .mb{
     left: 50%;
@@ -6939,12 +6952,12 @@ fieldset[disabled] .btn-danger.focus {
     height: 4px;
     left: -11px;
     bottom: 0;
-    border-left: 2px solid #fff;
-    border-right: 2px solid #fff;
-    border-top: 2px solid #fff;
+    border-left: 2px solid var(--background-white-main);
+    border-right: 2px solid var(--background-white-main);
+    border-top: 2px solid var(--background-white-main);
 }
 #luckysheet-modal-dialog-slider-imageCtrl .luckysheet-modal-dialog-slider-content{
-    background-color: #fff;
+    background-color: var(--background-white-main);
 }
 #luckysheet-modal-dialog-slider-imageCtrl .slider-box{
     border-bottom: 1px solid #E1E4E8;
@@ -7202,7 +7215,7 @@ fieldset[disabled] .btn-danger.focus {
     display: none;
     width: 20px;
     height: 20px;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     position: absolute;
     z-index: 10;
     overflow: hidden;
@@ -7220,7 +7233,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 #luckysheet-dataVerification-dropdown-List{
     display: none;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -7238,7 +7251,7 @@ fieldset[disabled] .btn-danger.focus {
 #luckysheet-dataVerification-showHintBox{
     display: none;
     padding: 10px;
-    background-color: #fff;
+    background-color: var(--background-white-main);
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     position: absolute;

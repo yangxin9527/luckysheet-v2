@@ -1,15 +1,15 @@
 import locale from '../locale/locale';
 import Store from '../store';
-import luckysheetConfigsetting from './luckysheetConfigsetting';
 import { getObjType } from '../utils/util';
+import luckysheetConfigsetting from './luckysheetConfigsetting';
 //dom variable
 const gridHTML = function(){ 
     const _locale = locale();
     const locale_info = _locale.info;
     const locale_print = _locale.print;
     const userInfo = luckysheetConfigsetting.userInfo === true ? '<i style="font-size:16px;color:#ff6a00;" class="fa fa-taxi" aria-hidden="true"></i> Lucky' : luckysheetConfigsetting.userInfo; // When true, use the default HTML string. The rendering of userInfo below uses nested template strings. Otherwise, when display is used and the image path is not passed in, there will be an undefined request
-
-    return `<div class="luckysheet">
+        const theme = Store.themeData.theme;
+    return `<div class="luckysheet ${theme}">
                     <canvas id="luckysheetTableContentF" style="display:none;" class="luckysheetTableContent"></canvas> 
                     <div class="luckysheet-work-area luckysheet-noselected-text"> 
                         <div id ="luckysheet_info_detail" class="luckysheet_info_detail"> 
@@ -1575,11 +1575,25 @@ function menuToolBar (){
         `;
 } 
 
-const luckysheetlodingHTML = function(){ 
-    const _locale = locale()
-    const info =_locale.info;
-    return'<div id="luckysheetloadingdata" style="width:100%;text-align:center;position:absolute;top:0px;height:100%;font-size: 16px;z-index:1000000000;background:#fff;"><div style="position:relative;top:45%;width:100%;"> <div class="luckysheetLoaderGif"></div>  <span>'+info.loading+'...</span></div></div>';
-}
+
+
+const luckysheetlodingHTML = function () {
+    const _locale = locale();
+    const info = _locale.info;
+    return (
+      `
+       <div 
+       id="luckysheetloadingdata" 
+       style="width:100%;text-align:center;
+       position:absolute;top:0px;height:100%;
+       font-size: 16px;z-index:1000000000;display:flex;align-items:center;
+       justify-content:center;"
+       >
+       <div class="luckysheetLoaderGif"></div></div>
+      `
+
+    );
+  };
 // var menusetting = {
 //     menu_selectall: '<div id="luckysheet-selectall-btn-title"><i class="fa fa-i-cursor"></i> 全选</div>',
 //     menu_copy: '<div id="luckysheet-copy-btn-title"><i class="fa fa-copy"></i> 复制</div>',
@@ -1669,12 +1683,21 @@ const keycode = {
     SCROLLLOCK: 145
 };
 
-const luckysheetdefaultstyle = {
-    fillStyle: "#000000",
+const BASE_STYLE = {
     textBaseline: "middle",
-    strokeStyle: "#dfdfdf",
-    rowFillStyle: "#5e5e5e",
     textAlign: 'center'
+}
+const THEME_LIGHT = {
+    ...BASE_STYLE,
+    fillStyle: "#34322d", //var(--text-primary);
+    strokeStyle: "#dfdfdf",
+    rowFillStyle: "#ffffff",// var(--background-white-main)
+}
+const THEME_DARK = {
+    ...BASE_STYLE,
+    fillStyle: "#dadada", //var(--text-primary);
+    strokeStyle: "#313132",
+    rowFillStyle: "#161618",// var(--background-white-main)
 }
 
 const luckysheetdefaultFont = function(){
@@ -1780,34 +1803,11 @@ function customSheetRightClickConfig() {
 }
 
 export {
-    gridHTML,
-    columeHeader_word,
-    columeHeader_word_index,
-    flow,
-    colsmenuHTML,
-    rightclickHTML,
-    pivottableconfigHTML,
-    pivottablesumHTML,
-    sheetHTML,
-    columnHeaderHTML,
-    sheetselectlistHTML,
-    sheetselectlistitemHTML,
-    inputHTML,
-    modelHTML,
-    maskHTML,
-    filtermenuHTML,
-    filtersubmenuHTML,
-    sheetconfigHTML,
-    luckysheetPivotTableHTML,
-    luckysheetAlternateformatHtml,
-    luckysheetchartpointconfigHTML,
-    luckysheetToolHTML,
-    menuToolBar,
-    luckysheetlodingHTML,
-    luckyColor,
-    keycode,
-    luckysheetdefaultstyle,
-    luckysheet_CFiconsImg,
-    luckysheetdefaultFont,
-    iconfontObjects
-}
+    colsmenuHTML, columeHeader_word,
+    columeHeader_word_index, columnHeaderHTML, filtermenuHTML,
+    filtersubmenuHTML, flow, gridHTML, iconfontObjects, inputHTML, keycode, luckyColor, luckysheet_CFiconsImg, luckysheetAlternateformatHtml,
+    luckysheetchartpointconfigHTML, luckysheetdefaultFont, luckysheetlodingHTML, luckysheetPivotTableHTML, luckysheetToolHTML, maskHTML, menuToolBar, modelHTML, pivottableconfigHTML,
+    pivottablesumHTML, rightclickHTML, sheetconfigHTML, sheetHTML, sheetselectlistHTML,
+    sheetselectlistitemHTML, THEME_DARK, THEME_LIGHT
+};
+

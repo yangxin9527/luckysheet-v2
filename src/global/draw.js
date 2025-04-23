@@ -1,24 +1,24 @@
-import pivotTable from '../controllers/pivotTable';
-import conditionformat from '../controllers/conditionformat';
 import alternateformat from '../controllers/alternateformat';
-import luckysheetSparkline from '../controllers/sparkline';
-import menuButton from '../controllers/menuButton';
+import conditionformat from '../controllers/conditionformat';
+import { luckysheet_CFiconsImg, luckysheetdefaultFont } from '../controllers/constant';
 import dataVerificationCtrl from '../controllers/dataVerificationCtrl';
-import { luckysheetdefaultstyle, luckysheet_CFiconsImg,luckysheetdefaultFont } from '../controllers/constant';
-import { luckysheet_searcharray } from '../controllers/sheetSearch';
-import { dynamicArrayCompute } from './dynamicArray';
-import browser from './browser';
-import { isRealNull, isRealNum } from './validate';
-import { getMeasureText,getCellTextInfo } from './getRowlen';
-import { getRealCellValue } from './getdata';
-import { getBorderInfoComputeRange } from './border';
-import { getSheetIndex } from '../methods/get';
-import { getObjType, chatatABC, luckysheetfontformat } from '../utils/util';
 import { isInlineStringCell } from '../controllers/inlineString';
-import method from './method';
-import Store from '../store';
-import locale from '../locale/locale';
+import menuButton from '../controllers/menuButton';
+import pivotTable from '../controllers/pivotTable';
+import { luckysheet_searcharray } from '../controllers/sheetSearch';
 import sheetmanage from '../controllers/sheetmanage';
+import luckysheetSparkline from '../controllers/sparkline';
+import locale from '../locale/locale';
+import { getSheetIndex } from '../methods/get';
+import Store from '../store';
+import { chatatABC, getObjType, luckysheetfontformat } from '../utils/util';
+import { getBorderInfoComputeRange } from './border';
+import browser from './browser';
+import { dynamicArrayCompute } from './dynamicArray';
+import { getCellTextInfo, getMeasureText } from './getRowlen';
+import { getRealCellValue } from './getdata';
+import method from './method';
+import { isRealNull, isRealNum } from './validate';
 
 function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
     if (scrollHeight == null) {
@@ -45,8 +45,8 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
     );
 
     luckysheetTableContent.font = luckysheetdefaultFont();
-    luckysheetTableContent.textBaseline = luckysheetdefaultstyle.textBaseline; //基准线 垂直居中
-    luckysheetTableContent.fillStyle = luckysheetdefaultstyle.fillStyle;
+    luckysheetTableContent.textBaseline = Store.themeData.textBaseline; //基准线 垂直居中
+    luckysheetTableContent.fillStyle = Store.themeData.fillStyle;
 
     let dataset_row_st, dataset_row_ed;
     dataset_row_st = luckysheet_searcharray(Store.visibledatarow, scrollHeight);
@@ -95,14 +95,15 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
 
         }
         else {
-            luckysheetTableContent.fillStyle = "#ffffff";
+            // 左侧
+            luckysheetTableContent.fillStyle = Store.themeData.rowFillStyle;
             luckysheetTableContent.fillRect(
                 0,
                 (start_r + offsetTop + firstOffset) , 
                 Store.rowHeaderWidth -1,
                 (end_r - start_r + 1+lastOffset-firstOffset) 
             )
-            luckysheetTableContent.fillStyle = "#000000";
+            luckysheetTableContent.fillStyle = Store.themeData.fillStyle;
 
             //行标题栏序列号
             luckysheetTableContent.save();//save scale before draw text
@@ -129,7 +130,7 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
         );
         luckysheetTableContent.lineWidth = 1;
 
-        luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+        luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
         luckysheetTableContent.stroke();
         luckysheetTableContent.closePath();
 
@@ -145,7 +146,7 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
                 (end_r + offsetTop - 4 + bodrder05) 
             );
             // luckysheetTableContent.lineWidth = 1;
-            // luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+            // luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
             luckysheetTableContent.closePath();
             luckysheetTableContent.stroke();
         }
@@ -161,7 +162,7 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
             );
 
             // luckysheetTableContent.lineWidth = 1;
-            // luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+            // luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
             luckysheetTableContent.closePath();
             luckysheetTableContent.stroke();
 
@@ -204,7 +205,7 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
     //     (Store.rh_height + offsetTop) 
     // );
     // luckysheetTableContent.lineWidth = 1;
-    // luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+    // luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
     // luckysheetTableContent.closePath();
     // luckysheetTableContent.stroke();
 
@@ -243,8 +244,8 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
 
 
     luckysheetTableContent.font = luckysheetdefaultFont();
-    luckysheetTableContent.textBaseline = luckysheetdefaultstyle.textBaseline; //基准线 垂直居中
-    luckysheetTableContent.fillStyle = luckysheetdefaultstyle.fillStyle;
+    luckysheetTableContent.textBaseline = Store.themeData.textBaseline; //基准线 垂直居中
+    luckysheetTableContent.fillStyle = Store.themeData.fillStyle;
 
     let dataset_col_st, dataset_col_ed;
     dataset_col_st = luckysheet_searcharray(Store.visibledatacolumn, scrollWidth);
@@ -293,14 +294,15 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
 
         }
         else {
-            luckysheetTableContent.fillStyle = "#ffffff";
+            //头部
+            luckysheetTableContent.fillStyle = Store.themeData.rowFillStyle;
             luckysheetTableContent.fillRect(
                 (start_c + offsetLeft - 1) , 
                 0, 
                 (end_c - start_c) ,
                 Store.columnHeaderHeight -1
             )
-            luckysheetTableContent.fillStyle = "#000000";
+            luckysheetTableContent.fillStyle = Store.themeData.fillStyle;
 
             //列标题栏序列号
             luckysheetTableContent.save();//save scale before draw text
@@ -328,7 +330,7 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
                 (Store.columnHeaderHeight - 2) 
             );
             luckysheetTableContent.lineWidth = 1;
-            luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+            luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
             luckysheetTableContent.closePath();
             luckysheetTableContent.stroke();
         }
@@ -344,7 +346,7 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
             );
 
             luckysheetTableContent.lineWidth = 1;
-            luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+            luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
             luckysheetTableContent.closePath();
             luckysheetTableContent.stroke();
         }
@@ -360,7 +362,7 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
                 (Store.columnHeaderHeight - 2) 
             );
             // luckysheetTableContent.lineWidth = 1;
-            // luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+            // luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
             luckysheetTableContent.closePath();
             luckysheetTableContent.stroke();
         }
@@ -378,7 +380,7 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
         );
         // luckysheetTableContent.lineWidth = 1;
 
-        // luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;        
+        // luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;        
         luckysheetTableContent.stroke();
         luckysheetTableContent.closePath();
 
@@ -403,7 +405,7 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
     //     (Store.columnHeaderHeight - 2 + 0.5) 
     // );
     // luckysheetTableContent.lineWidth = 1;
-    // luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+    // luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
     // luckysheetTableContent.closePath();
     // luckysheetTableContent.stroke();
 
@@ -554,7 +556,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
     fill_col_ed = Store.visibledatacolumn[dataset_col_ed];
 
     //表格canvas 初始化处理
-    luckysheetTableContent.fillStyle = "#ffffff";
+    luckysheetTableContent.fillStyle =  Store.themeData.rowFillStyle;
     luckysheetTableContent.fillRect(
         (offsetLeft - 1) , 
         (offsetTop - 1) , 
@@ -563,7 +565,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
     );
     luckysheetTableContent.font = luckysheetdefaultFont();
     // luckysheetTableContent.textBaseline = "top";
-    luckysheetTableContent.fillStyle = luckysheetdefaultstyle.fillStyle;
+    luckysheetTableContent.fillStyle = Store.themeData.fillStyle;
 
     //表格渲染区域 非空单元格行列 起止坐标
     let cellupdate = [];
@@ -872,7 +874,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
                          (end_r - 2 + bodrder05 + offsetTop)
                     );
                     luckysheetTableContent.lineWidth = 1;
-                    luckysheetTableContent.strokeStyle = "#000000";
+                    luckysheetTableContent.strokeStyle = Store.themeData.fillStyle;
                     luckysheetTableContent.closePath();
                     luckysheetTableContent.stroke();
                 }
@@ -888,7 +890,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
                          (end_r - 2 + bodrder05 + offsetTop)
                     );
                     luckysheetTableContent.lineWidth = 1;
-                    luckysheetTableContent.strokeStyle = "#000000";
+                    luckysheetTableContent.strokeStyle = Store.themeData.fillStyle;
                     luckysheetTableContent.closePath();
                     luckysheetTableContent.stroke();
                 }
@@ -918,7 +920,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
                         (end_r - 2 + bodrder05 + offsetTop)
                     );
                     luckysheetTableContent.lineWidth = 1;
-                    luckysheetTableContent.strokeStyle = "#000000";
+                    luckysheetTableContent.strokeStyle = Store.themeData.fillStyle;
                     luckysheetTableContent.closePath();
                     luckysheetTableContent.stroke();
 
@@ -932,7 +934,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
                         (end_r - 2 + bodrder05 + offsetTop)
                     );
                     luckysheetTableContent.lineWidth = 1;
-                    luckysheetTableContent.strokeStyle = "#000000";
+                    luckysheetTableContent.strokeStyle = Store.themeData.fillStyle;
                     luckysheetTableContent.closePath();
                     luckysheetTableContent.stroke();
                 }
@@ -1149,7 +1151,7 @@ let nullCellRender = function(r, c, start_r, start_c, end_r, end_c,luckysheetTab
     }
 
     if(fillStyle==null){
-        luckysheetTableContent.fillStyle = "#FFFFFF";
+        luckysheetTableContent.fillStyle =  Store.themeData.rowFillStyle;
     }
     else{
         luckysheetTableContent.fillStyle = fillStyle;
@@ -1178,7 +1180,7 @@ let nullCellRender = function(r, c, start_r, start_c, end_r, end_c,luckysheetTab
     if((r + "_" + c) in dynamicArray_compute){
         let value = dynamicArray_compute[r + "_" + c].v;
 
-        luckysheetTableContent.fillStyle = "#000000";
+        luckysheetTableContent.fillStyle = Store.themeData.fillStyle;
         //文本宽度和高度
         let fontset = luckysheetdefaultFont();
         luckysheetTableContent.font = fontset;
@@ -1238,7 +1240,7 @@ let nullCellRender = function(r, c, start_r, start_c, end_r, end_c,luckysheetTab
             );
             luckysheetTableContent.lineWidth = 1;
 
-            luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+            luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
             luckysheetTableContent.stroke();
             luckysheetTableContent.closePath();
         }
@@ -1257,7 +1259,7 @@ let nullCellRender = function(r, c, start_r, start_c, end_r, end_c,luckysheetTab
         );
         luckysheetTableContent.lineWidth = 1;
 
-        luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;        
+        luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;        
         luckysheetTableContent.stroke();
         luckysheetTableContent.closePath();
     }
@@ -1300,7 +1302,7 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
     }
     // luckysheetTableContent.textBaseline = 'top';
     if(fillStyle==null){
-        luckysheetTableContent.fillStyle = "#FFFFFF";
+        luckysheetTableContent.fillStyle = Store.themeData.rowFillStyle;
     }
     else{
         luckysheetTableContent.fillStyle = fillStyle;
@@ -1514,7 +1516,7 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
                         x + w * minusLen, 
                         y
                     );
-                    my_gradient.addColorStop(0, "#ffffff");
+                    my_gradient.addColorStop(0, Store.themeData.rowFillStyle);
                     my_gradient.addColorStop(1, "#ff0000");
 
                     luckysheetTableContent.fillStyle = my_gradient;
@@ -1771,7 +1773,7 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
                  (end_r + offsetTop)
             );
             luckysheetTableContent.lineWidth = 1;
-            luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+            luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
             luckysheetTableContent.stroke();
             luckysheetTableContent.closePath();
         }
@@ -1789,7 +1791,7 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
              (end_r + offsetTop - 2 + bodrder05)
         );
         luckysheetTableContent.lineWidth = 1;
-        luckysheetTableContent.strokeStyle = luckysheetdefaultstyle.strokeStyle;
+        luckysheetTableContent.strokeStyle = Store.themeData.strokeStyle;
         luckysheetTableContent.stroke();
         luckysheetTableContent.closePath();
     }
@@ -2186,8 +2188,9 @@ function cellTextRender(textInfo, ctx, option){
         }
         else{
             ctx.font = word.style;
+            ctx.fillStyle = Store.themeData.fillStyle;
+
         }
-        
         // 暂时未排查到word.content第一次会是object，先做下判断来渲染，后续找到问题再复原
         let txt = typeof word.content === 'object' ? word.content.m : word.content
         ctx.fillText(txt, (pos_x + word.left)/Store.zoomRatio, (pos_y+word.top)/Store.zoomRatio);
@@ -2241,7 +2244,5 @@ function cellTextRender(textInfo, ctx, option){
 
 
 export {
-    luckysheetDrawgridRowTitle,
-    luckysheetDrawgridColumnTitle,
-    luckysheetDrawMain,
-}
+    luckysheetDrawgridColumnTitle, luckysheetDrawgridRowTitle, luckysheetDrawMain
+};

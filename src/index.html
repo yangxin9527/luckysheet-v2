@@ -16,7 +16,32 @@
 
 	<!-- rollup luckysheet.js -->
 	<script src="./luckysheet.umd.js"></script>
+	<style>
+		
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#luckysheetloadingdata .luckysheetLoaderGif {
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  animation: spin 1s linear infinite;
+  width:16px;
+  height:16px;
+  border-width:2px;
+  border-top-color:var(--text-brand);
+  border-right-color:transparent;
+  border-bottom-color:transparent;
+  border-left-color:transparent;
 
+
+}
+
+	</style>
 </head>
 
 <body>
@@ -53,6 +78,7 @@
 			// According to the browser language
 			var lang = luckysheetDemoUtil.language() === 'zh' ? 'zh' : 'en';
 			var isShare = luckysheetDemoUtil.getRequest().share; // '?share=1' opens the collaborative editing mode
+			var isDark = luckysheetDemoUtil.getRequest().isDark; // '?isDark=1'editing mode
 			var gridKey = luckysheetDemoUtil.getRequest().gridKey; // workbook id for collaborative editing, or directly define here
             var options = null;
 
@@ -1870,6 +1896,77 @@
 				}]*/
 				}
             }
+			if(isDark){
+				options.theme = isDark?'dark':'light'
+				options={
+					...options,
+					theme: 'dark',
+					editMode:false,
+            sheetFormulaBar: false, // 是否显示公式栏
+            defaultRowHeight: 30, //自定义行高
+            // defaultColWidth: columnWidth || undefined, //自定义列宽
+            allowUpdate: false,
+            allowEdit: false, // 是否允许前台编辑
+            columnHeaderHeight: 30,
+            // columnHeaderHeight: 1, // 表头高度30
+            // rowHeaderWidth: 1, //
+            defaultFontSize: 14,
+            showtoolbar: false, // 是否显示工具栏
+            showinfobar: false, // 是否显示顶部信息栏
+            showsheetbar: false, // 是否显示底部sheet页按钮
+            showstatisticBar: false, // 是否显示底部计数栏
+            sheetBottomConfig: false, // sheet页下方的添加行按钮和回到顶部按钮配置
+            enableAddRow: false, // 允许增加行
+            enableAddCol: false, // 允许增加列
+            userInfo: false, // 右上角的用户信息展示样式
+            showRowBar: false, // 是否显示行号区域
+            showColumnBar: false, // 是否显示列号区域
+            enableAddBackTop: false, //返回头部按钮
+
+            showstatisticBarConfig: {
+              count: false,
+              view: false,
+              zoom: false,
+            },
+            showsheetbarConfig: {
+              add: false, //新增sheet
+              menu: false, //sheet管理菜单
+              sheet: false, // 多表格时显示sheet操作按钮
+            },
+            // cellRightClickConfig: false, //右键菜单
+            sheetRightClickConfig: {
+              delete: false, //Delete
+              copy: false, //Copy
+              rename: false, //Rename
+              color: false, //Change color
+              hide: false, //Hide, unhide
+              move: false, //Move to the left, move to the right
+            },
+            cellRightClickConfig: {
+              // copy: false, // copy
+              copyAs: false, // copy as
+              paste: false, // paste
+              insertRow: false, // insert row
+              insertColumn: false, // insert column
+              deleteRow: false, // delete the selected row
+              deleteColumn: false, // delete the selected column
+              deleteCell: false, // delete cell
+              hideRow: false, // hide the selected row and display the selected row
+              hideColumn: false, // hide the selected column and display the selected column
+              rowHeight: false, // row height
+              columnWidth: false, // column width
+              clear: false, // clear content
+              matrix: false, // matrix operation selection
+              sort: false, // sort selection
+              filter: false, // filter selection
+              chart: false, // chart generation
+              image: false, // insert picture
+              link: false, // insert link
+              data: false, // data verification
+              cellFormat: false, // Set cell format
+            },
+				}
+			}
 
             luckysheet.create(options);
 			
