@@ -2,7 +2,6 @@ import conditionformat from './conditionformat';
 import { keycode } from './constant';
 import controlHistory from './controlHistory';
 import imageCtrl from './imageCtrl';
-import luckysheetConfigsetting from './luckysheetConfigsetting';
 import menuButton from './menuButton';
 import searchReplace from './searchReplace';
 import { selectHightlightShow, selectIsOverlap } from './select';
@@ -466,7 +465,7 @@ export function keyboardInitial(){
                     if(Store.luckysheet_select_save.length == 0){
                         return;
                     }
-
+                  
                     //复制范围内包含部分合并单元格，提示
                     if(Store.config["merge"] != null){
                         let has_PartMC = false;
@@ -484,15 +483,15 @@ export function keyboardInitial(){
                             }
                         }
 
-                        if(has_PartMC){
-                            if(isEditMode()){
-                                alert(locale_drag.noMerge);
-                            }
-                            else{
-                                tooltip.info(locale_drag.noMerge, ""); 
-                            }
-                            return;    
-                        }
+                        // if(has_PartMC){
+                        //     if(isEditMode()){
+                        //         alert(locale_drag.noMerge);
+                        //     }
+                        //     else{
+                        //         tooltip.info(locale_drag.noMerge, ""); 
+                        //     }
+                        //     return;    
+                        // }
                     }
 
                     //多重选区 有条件格式时 提示
@@ -638,15 +637,15 @@ export function keyboardInitial(){
                             }
                         }
 
-                        if(has_PartMC){
-                            if(luckysheetConfigsetting.editMode){
-                                alert(_locale_drag.noMerge);
-                            }
-                            else{
-                                tooltip.info(_locale_drag.noMerge, ""); 
-                            }
-                            return;    
-                        }
+                        // if(has_PartMC){
+                        //     if(luckysheetConfigsetting.editMode){
+                        //         alert(_locale_drag.noMerge);
+                        //     }
+                        //     else{
+                        //         tooltip.info(_locale_drag.noMerge, ""); 
+                        //     }
+                        //     return;    
+                        // }
                     }
 
                     //多重选区时 提示

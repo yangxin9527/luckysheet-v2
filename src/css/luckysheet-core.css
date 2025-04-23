@@ -2919,10 +2919,11 @@ fieldset[disabled] .btn-danger.focus {
 .luckysheet-count-show {
     position: absolute;
     z-index: 15;
-    background: rgba(76, 76, 76, 0.8);
-    color: var(--background-white-main);
-    padding: 2px 3px;
+    background: var(--background-gray-main);
+    color: var(--text-primary);
+    padding:3px 4px;
     border-radius: 3px;
+    line-height: 14px;
     transition: all 0.3s;
     display: none;
     white-space: nowrap;
@@ -2930,6 +2931,7 @@ fieldset[disabled] .btn-danger.focus {
 
 .luckysheet-row-count-show {
     text-align: center;
+    padding: 3px 6px 3px 4px;
 }
 
 .luckysheet-row-count-show div {
