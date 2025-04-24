@@ -26,8 +26,21 @@ export function luckysheetupdateCell(row_index1, col_index1, d, cover, isnotfocu
     }
     
     if(Store.diy){
+        // 隐藏光标 不允许修改，因为中文输入法各种卡bug
+        if($("#luckysheet-rich-text-editor").attr("contenteditable") == "true"){
+            $("#luckysheet-rich-text-editor").click(()=>{
+                setTimeout(()=>{
+                $("#luckysheet-rich-text-editor").blur();
+                },10)
+            })
+               
+        }
+        setTimeout(()=>{
+            $("#luckysheet-rich-text-editor").blur();
+        },10)
         $("#luckysheet-rich-text-editor").attr("contenteditable", "false")
         $("#luckysheet-rich-text-editor").css("caret-color", "transparent"); /* 隐藏光标 */
+     
     }else{
         if(isEditMode() || Store.allowEdit===false){//此模式下禁用单元格编辑
             return;

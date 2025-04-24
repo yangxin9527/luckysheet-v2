@@ -524,7 +524,6 @@ const selection = {
             setTimeout(function () {
                 $("#luckysheet-copy-content").blur();
             }, 10);
-            console.log("=======cpdata:", cpdata)
             // var oInput = document.createElement('input');
             // oInput.setAttribute('readonly', 'readonly');
             // oInput.value = cpdata;
