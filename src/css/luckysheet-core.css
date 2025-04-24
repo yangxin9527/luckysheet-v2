@@ -3034,7 +3034,9 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 #luckysheet-rich-text-editor {
-    -webkit-user-modify: read-write;
+    /* -webkit-user-modify: read-write; */
+    -webkit-user-modify: read-only;
+
     /*    background-color: rgb(255, 255, 255); 
     font-size: 13px; 
     color: rgb(0, 0, 0); 
