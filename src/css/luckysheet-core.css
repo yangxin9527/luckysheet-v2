@@ -978,7 +978,8 @@
     bottom: 0;
     left: 0;
     /* background-color: #f6f6f6; */
-    background-color: #fafafc;
+    /* background-color: #fafafc; */
+    background: var(--background-white-main);
     color: #444;
     height: 31px;
     padding: 0 0 0 44px;
@@ -1029,7 +1030,7 @@ div.luckysheet-sheets-m:hover {
 }
 
 .docs-sheet-fade div {
-    background-color: #d7d7d7;
+    /* background-color: #d7d7d7; */
     width: 2px;
     float: right;
     position: relative;
@@ -1092,7 +1093,9 @@ div.luckysheet-sheets-m:hover {
     line-height: 29px;
     /* box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) inset; */
     /* background-color: #f7f7f7; */
-    background-color: #fafafc;
+    /* background-color: #fafafc; */
+
+    background: var(--background-white-main);
     /* border-color: #000; */
     /* border-top-color: #aaa; */
     /* border-width: 0 1px 1px 1px; */
@@ -1110,9 +1113,9 @@ div.luckysheet-sheets-m:hover {
 
     padding: 2px 19px 0px 5px;
     box-sizing: border-box;
-    border-left: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-    border-right: 1px solid #e0e0e0;
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
     /* display:flex;
     justify-content: center;
     align-items: center;
@@ -1123,9 +1126,10 @@ div.luckysheet-sheets-m:hover {
     margin-right: 1px;
 }
 .luckysheet-sheet-area div.luckysheet-sheets-item:hover {
-    background-color: #EFEFEF;
-    /* border-color: #a5a5a5; */
-    color: #490500;
+  
+    background-color: var(--fill-tsp-white-main);
+    /* border-color: #aaa; */
+    color: var(--text-primary);;
 }
 
 .luckysheet-sheet-area div.luckysheet-sheets-item .luckysheet-sheets-item-menu {
@@ -1176,10 +1180,10 @@ div.luckysheet-sheets-m:hover {
     /* padding: 2px 8px; */
     height: 29px;
     line-height: 29px;
-    background-color: #efefef;
+    background-color: var(--fill-tsp-white-main);
     /* border-color: #aaa; */
     border-top-color: var(--background-white-main);
-    color: #222;
+    color: var(--text-primary);;
     /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
     cursor: default;
     /* top: -2px; */
@@ -1188,9 +1192,10 @@ div.luckysheet-sheets-m:hover {
 }
 
 .luckysheet-sheet-area div.luckysheet-sheets-item-active:hover {
-    background-color: #ececec;
+    
+    background-color: var(--fill-tsp-white-main);
     /* border-color: #aaa; */
-    color: #222;
+    color: var(--text-primary);;
 }
 
 .luckysheet-grid-window-1 {

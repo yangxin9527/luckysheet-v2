@@ -1,6 +1,6 @@
 {
   "name": "luckysheet-v2",
-  "version": "2.1.24",
+  "version": "2.1.25",
   "main": "dist/luckysheet.cjs.js",
   "module": "dist/luckysheet.esm.js",
   "browser": "dist/luckysheet.umd.js",

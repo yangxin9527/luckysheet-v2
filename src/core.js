@@ -39,7 +39,7 @@ import Mandarin from 'flatpickr/dist/l10n/zh.js';
 import { initListener } from './controllers/listener';
 
 let luckysheet = {};
-
+console.log('luckysheet=====');
 // mount api
 // luckysheet.api = api;
 // Object.assign(luckysheet, api);
