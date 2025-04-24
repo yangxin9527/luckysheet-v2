@@ -9,12 +9,14 @@
   --background-gray-main: #f8f8f7;
   --background-white-main: #ffffff;
   --border:#dfdfdf;
+  --fill-tsp-white-main: #37352f0f
 }
 .dark {
     --text-primary: #dadada;
     --background-gray-main: #272728;
     --background-white-main: #161618;
     --border:#313132 ;
+    --fill-tsp-white-main: #ffffff0f
    
 }
 .luckysheetloadingdata{
@@ -1237,16 +1239,16 @@ div.luckysheet-sheets-m:hover {
 }
 
 .luckysheet-left-top {
-    width: 44.5px;
-    height: 18.5px;
+    width: 44px;
+    height: 18px;
     border: solid 1px var(--border);
     position: relative;
     padding-top: 0;
     border-width: 0 1px 1px 0;
-    margin: -1px 0 0 -1px;
+    /* margin: -1px 0 0 -1px; */
     padding-left: 0;
     cursor: pointer;
-    background: var(--background-white-main);
+    background: var(--fill-tsp-white-main);
 }
 
 .luckysheet-cols-h-c {
@@ -1694,6 +1696,12 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     bottom: 0px;
     left: 44px;
     overflow-x: scroll;
+
+    /* diy 样式修改 */
+    box-sizing: border-box;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    height: 10px !important;
 }
 
 .luckysheet-scrollbar-y {
@@ -1701,6 +1709,10 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     top: 0px;
     overflow-y: scroll;
 
+    /* diy 样式修改 */
+    box-sizing: border-box;
+    border-left: 1px solid var(--border);
+    width: 10px !important;
 }
 
 
@@ -2998,6 +3010,7 @@ fieldset[disabled] .btn-danger.focus {
     -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     word-wrap: break-word;
+    background-color: var(--background-white-main)!important;
 }
 
 
@@ -3010,6 +3023,8 @@ fieldset[disabled] .btn-danger.focus {
     -webkit-user-modify: read-write-plaintext-only;
     white-space: pre-wrap;
     -webkit-transform: translateZ(0);
+    /* line-height: 150; */
+    background-color: var(--background-white-main);
     /*    background-color: white;*/
 }
 
@@ -3028,7 +3043,7 @@ fieldset[disabled] .btn-danger.focus {
     position: absolute;
     /*top: -20px;
     left: -3px;*/
-    height: 14px;
+    height: 18px;
     line-height: 16px;
     font-size: 12px;
     padding: 1px 6px;
@@ -7266,7 +7281,7 @@ fieldset[disabled] .btn-danger.focus {
     white-space: nowrap;
 }
 
-//hack
+/* //hack */
 .luckysheet_info_detail{
     display: none !important;
 }

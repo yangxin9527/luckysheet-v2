@@ -105,8 +105,8 @@ const gridHTML = function(){
                                                     </div>
                                                 </div> 
                                                 <div class="luckysheet-cell-freezen"></div> 
-                                                <div class="luckysheet-scrollbars luckysheet-scrollbar-ltr luckysheet-scrollbar-x" id="luckysheet-scrollbar-x"><div></div></div> 
-                                                <div class="luckysheet-scrollbars luckysheet-scrollbar-ltr luckysheet-scrollbar-y" id="luckysheet-scrollbar-y"><div></div></div> 
+                                                <div class="luckysheet-scrollbars luckysheet-scrollbar-ltr luckysheet-scrollbar-x" id="luckysheet-scrollbar-x"><div id="luckysheet-scrollbar-x-child"></div></div> 
+                                                <div class="luckysheet-scrollbars luckysheet-scrollbar-ltr luckysheet-scrollbar-y" id="luckysheet-scrollbar-y"><div id="luckysheet-scrollbar-y-child"></div></div> 
                                                 <div class="luckysheet-cell-main " id="luckysheet-cell-main">
                                                     <div id="luckysheet-formula-functionrange"></div>  
                                                     <div id="luckysheet-formula-functionrange-select" class="luckysheet-selection-copy luckysheet-formula-functionrange-select">
@@ -625,7 +625,7 @@ const sheetHTML = '<div style="${style}" id="luckysheet-sheets-item${index}" dat
     columnHeaderHTML = '<div class="luckysheet-cols-h-cells luckysheetsheetchange"  id="luckysheet-cols-h-cells_${index}" style="width:${width}px;"> <div class="luckysheet-cols-h-cells-c"> <div class="luckysheet-grdblkpush"></div>${column}</div></div>',
     sheetselectlistHTML = '<div class="luckysheet-cols-menu luckysheet-rightgclick-menu luckysheet-mousedown-cancel" id="luckysheet-sheet-list">${item}</div>',
     sheetselectlistitemHTML = '<div class="luckysheet-cols-menuitem luckysheet-mousedown-cancel"  id="luckysheet-sheet-btn${index}" data-index="${index}"><div class="luckysheet-cols-menuitem-content luckysheet-mousedown-cancel" style="${style}" ><span class="icon luckysheet-mousedown-cancel">${icon}</span>${name}</div></div>',
-    inputHTML = '<div dir="ltr"><div class="luckysheet-input-box-index" id="luckysheet-input-box-index"></div><div id="luckysheet-input-box" spellcheck="false" aria-hidden="false" class="luckysheet-input-box"><div class="luckysheet-cell-input editable" tabindex="0" role="combobox" contenteditable="true" id="luckysheet-rich-text-editor" dir="ltr" g_editable="true" aria-autocomplete="list"></div></div></div>',
+    inputHTML = '<div style="width=100vw;overflow:hidden;"><div dir="ltr" style="position: absolute;left: 0;z-index: 51;width: -webkit-fill-available; max-width: 90%;"  ><div class="luckysheet-input-box-index" id="luckysheet-input-box-index"></div><div id="luckysheet-input-box" spellcheck="false" aria-hidden="false" class="luckysheet-input-box"><div class="luckysheet-cell-input editable" tabindex="0" role="combobox" contenteditable="true" id="luckysheet-rich-text-editor" dir="ltr" g_editable="true" aria-autocomplete="list"></div></div></div></div>',
     modelHTML = '<div id="${id}" style="${style}" class="luckysheet-modal-dialog ${addclass}" tabindex="0" role="dialog" aria-labelledby=":41e" dir="ltr"> <div class="luckysheet-modal-dialog-title luckysheet-modal-dialog-title-draggable"> <span class="luckysheet-modal-dialog-title-text" role="heading">${title}</span>	 <span class="luckysheet-modal-dialog-title-close" role="button" tabindex="0" aria-label="${close}"><i class="fa fa-times" aria-hidden="true"></i></span> </div> <div class="luckysheet-modal-dialog-content">${content}</div> <div class="luckysheet-modal-dialog-buttons">	 ${botton} </div></div>',
 
     maskHTML = '<div class="luckysheet-modal-dialog-mask" id="luckysheet-modal-dialog-mask"></div>';
@@ -1692,12 +1692,14 @@ const THEME_LIGHT = {
     fillStyle: "#34322d", //var(--text-primary);
     strokeStyle: "#dfdfdf",
     rowFillStyle: "#ffffff",// var(--background-white-main)
+    headerFillStyle: "#37352f0f",// var(--fill-tsp-white-main)
 }
 const THEME_DARK = {
     ...BASE_STYLE,
     fillStyle: "#dadada", //var(--text-primary);
     strokeStyle: "#313132",
     rowFillStyle: "#161618",// var(--background-white-main)
+    headerFillStyle: "#ffffff0f",// var(--fill-tsp-white-main)
 }
 
 const luckysheetdefaultFont = function(){

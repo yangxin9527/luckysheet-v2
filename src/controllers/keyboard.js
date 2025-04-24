@@ -274,7 +274,7 @@ export function keyboardInitial(){
         let altKey = event.altKey;
         let shiftKey = event.shiftKey;
         let kcode = event.keyCode;
-
+        
         if(Store.diy){
             if ((ctrlKey || event.metaKey) &&kcode == 67) {//Ctrl + C  复制
 
@@ -282,8 +282,8 @@ export function keyboardInitial(){
                 //只能复制
                 event.stopPropagation();
                 event.preventDefault();
+                return 
             }
-            return 
         }
 
         if ($("#luckysheet-modal-dialog-mask").is(":visible") || $(event.target).hasClass("luckysheet-mousedown-cancel") || $(event.target).hasClass("sp-input") || (parseInt($("#luckysheet-input-box").css("top")) > 0 && $(event.target).closest(".luckysheet-input-box").length > 0 && kcode != keycode.ENTER && kcode != keycode.TAB && kcode != keycode.UP && kcode != keycode.DOWN && kcode != keycode.LEFT && kcode != keycode.RIGHT)) {

@@ -1,24 +1,21 @@
-import { 
-    gridHTML, 
-    menuToolBar, 
-    flow, 
-    columnHeaderHTML,
-    maskHTML,
+import {
     colsmenuHTML,
-    rightclickHTML,
-    inputHTML,
+    columnHeaderHTML,
     filtermenuHTML,
     filtersubmenuHTML,
+    flow,
+    gridHTML,
+    inputHTML,
+    maskHTML,
+    menuToolBar,
+    rightclickHTML,
     sheetconfigHTML,
 } from '../controllers/constant';
 import luckysheetConfigsetting from '../controllers/luckysheetConfigsetting';
-import luckysheetPostil from '../controllers/postil';
-import { datagridgrowth } from './getdata';
-import editor from './editor';
-import rhchInit from './rhchInit';
-import { replaceHtml } from '../utils/util';
-import Store from '../store';
 import locale from '../locale/locale';
+import Store from '../store';
+import { replaceHtml } from '../utils/util';
+import rhchInit from './rhchInit';
 
 export default function luckysheetcreatedom(colwidth, rowheight, data, menu, title) {
     // //最少30行
@@ -107,7 +104,9 @@ export default function luckysheetcreatedom(colwidth, rowheight, data, menu, tit
     $("body").append(maskHTML);
     $("body").append(colsmenuHTML);
     $("body").append(rightclickHTML());
-    $("body").append(inputHTML);
+    //bug
+    $("body").prepend(inputHTML);
+
     $("body").append(replaceHtml(filtermenuHTML(), { "menuid": "filter" }));
     $("body").append(replaceHtml(filtersubmenuHTML(), { "menuid": "filter" }));
     $("body").append(sheetconfigHTML());

@@ -96,12 +96,13 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
         }
         else {
             // 左侧
-            luckysheetTableContent.fillStyle = Store.themeData.rowFillStyle;
+            luckysheetTableContent.fillStyle = Store.themeData.headerFillStyle;
             luckysheetTableContent.fillRect(
                 0,
                 (start_r + offsetTop + firstOffset) , 
                 Store.rowHeaderWidth -1,
-                (end_r - start_r + 1+lastOffset-firstOffset) 
+                // diy 原本是+1 (end_r - start_r + 1+lastOffset-firstOffset) 
+                (end_r - start_r - 1 +lastOffset-firstOffset) 
             )
             luckysheetTableContent.fillStyle = Store.themeData.fillStyle;
 
@@ -189,7 +190,7 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
             r:r,
             top:(start_r + offsetTop + firstOffset),
             width:Store.rowHeaderWidth -1,
-            height:(end_r - start_r + 1+lastOffset-firstOffset)
+            height:(end_r - start_r -1 +lastOffset-firstOffset)
         }, luckysheetTableContent)
 
     }
@@ -295,7 +296,7 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
         }
         else {
             //头部
-            luckysheetTableContent.fillStyle = Store.themeData.rowFillStyle;
+            luckysheetTableContent.fillStyle = Store.themeData.headerFillStyle;
             luckysheetTableContent.fillRect(
                 (start_c + offsetLeft - 1) , 
                 0, 
