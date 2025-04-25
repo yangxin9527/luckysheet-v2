@@ -80,10 +80,26 @@ luckysheet.create = function (setting) {
                             cell.v.bg=null
                             cell.v.fc=null
                         }
+                        // 解析错误 excellucksheet 有时候会把cancelline	删除线解析为1 是错误情况
+
+                        if(cell&&cell.v&&cell.v.cl===1){
+                            cell.v.cl=0
+                        }
                     })
                 }
             })
             console.log(extendsetting.data)
+        }else{
+            extendsetting.data.forEach((item)=>{
+                if(item.celldata){
+                    item.celldata.forEach((cell)=>{
+                        // 解析错误 excellucksheet 有时候会把cancelline	删除线解析为1 是错误情况
+                        if(cell&&cell.v&&cell.v.cl===1){
+                            cell.v.cl=0
+                        }
+                    })
+                }
+            })
         }
     let container = extendsetting.container;
     Store.container = container;
