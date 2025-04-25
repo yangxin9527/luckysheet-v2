@@ -61,7 +61,7 @@ luckysheet.create = function (setting) {
     let extendsetting = common_extend(defaultSetting, setting);
     const isDark = extendsetting.theme ==='dark';
     //
-  
+    
     Store.themeData = {
         theme: isDark?'dark':'light',
         ...(isDark?THEME_DARK:THEME_LIGHT)
@@ -71,7 +71,20 @@ luckysheet.create = function (setting) {
     let loadurl = extendsetting.loadUrl,
         menu = extendsetting.menu,
         title = extendsetting.title;
-
+        //暗黑模式去掉颜色和背景
+        if(isDark){
+            extendsetting.data.forEach((item)=>{
+                if(item.celldata){
+                    item.celldata.forEach((cell)=>{
+                        if(cell&&cell.v&&cell.v.bg){
+                            cell.v.bg=null
+                            cell.v.fc=null
+                        }
+                    })
+                }
+            })
+            console.log(extendsetting.data)
+        }
     let container = extendsetting.container;
     Store.container = container;
     Store.luckysheetfile = extendsetting.data;

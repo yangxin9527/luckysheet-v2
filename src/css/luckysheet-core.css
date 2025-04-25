@@ -7296,3 +7296,7 @@ fieldset[disabled] .btn-danger.focus {
 .luckysheet-wa-editor.toolbar{
     display: none;
 }
+
+.luckysheet-formula-help-c{
+    display: none !important;
+}
