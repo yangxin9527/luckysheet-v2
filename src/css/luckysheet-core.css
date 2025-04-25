@@ -7301,3 +7301,9 @@ fieldset[disabled] .btn-danger.focus {
 .luckysheet-formula-help-c{
     display: none !important;
 }
+.luckysheet-modal-dialog-resize-item,.luckysheet-modal-dialog-slider,.luckysheet-modal-dialog-controll{
+    display: none !important;
+}
+.luckysheet-modal-dialog-content{
+    cursor: default !important;
+}

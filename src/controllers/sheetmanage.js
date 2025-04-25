@@ -1004,7 +1004,7 @@ const sheetmanage = {
         imageCtrl.images = file.images;
         imageCtrl.allImagesShow();
         // diy
-        // imageCtrl.init();
+        imageCtrl.init();
 
         //数据验证
         dataVerificationCtrl.dataVerification = file.dataVerification;

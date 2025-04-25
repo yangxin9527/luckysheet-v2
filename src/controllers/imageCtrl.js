@@ -1,13 +1,11 @@
-import { mouseposition } from '../global/location';
-import server from './server';
-import luckysheetsizeauto from './resize';
-import { modelHTML } from './constant';
-import {checkProtectionAuthorityNormal} from './protection';
-import { getSheetIndex } from '../methods/get';
-import { setluckysheet_scroll_status } from '../methods/set';
-import { replaceHtml } from '../utils/util';
-import Store from '../store';
 import locale from '../locale/locale';
+import { getSheetIndex } from '../methods/get';
+import Store from '../store';
+import { replaceHtml } from '../utils/util';
+import { modelHTML } from './constant';
+import { checkProtectionAuthorityNormal } from './protection';
+import luckysheetsizeauto from './resize';
+import server from './server';
 
 const imageCtrl = {
     imgItem: {
@@ -293,9 +291,9 @@ const imageCtrl = {
         });
 
         //常规
-        $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.radio").on("change.radio", ".radio-item input[type=radio][name=imgItemType]", function() {
-            _this.configChange("type", this.value);
-        })
+        // $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.radio").on("change.radio", ".radio-item input[type=radio][name=imgItemType]", function() {
+        //     _this.configChange("type", this.value);
+        // })
 
         //固定位置
         $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.checkbox").on("change.checkbox", ".slider-box-checkbox input[type=checkbox]", function() {
@@ -303,42 +301,41 @@ const imageCtrl = {
         })
 
         //边框宽度
-        $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.borderWidth").on("change.borderWidth", "#imgItemBorderWidth", function() {
-            _this.configChange("border-width", this.valueAsNumber);
-        })
+        // $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.borderWidth").on("change.borderWidth", "#imgItemBorderWidth", function() {
+        //     _this.configChange("border-width", this.valueAsNumber);
+        // })
 
         //边框半径
-        $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.borderRadius").on("change.borderRadius", "#imgItemBorderRadius", function() {
-            _this.configChange("border-radius", this.valueAsNumber);
-        })
+        // $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.borderRadius").on("change.borderRadius", "#imgItemBorderRadius", function() {
+        //     _this.configChange("border-radius", this.valueAsNumber);
+        // })
 
         //边框样式
-        $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.borderStyle").on("change.borderStyle", "#imgItemBorderStyle", function() {
-            _this.configChange("border-style", this.value);
-        })
+        // $("#luckysheet-modal-dialog-slider-imageCtrl").off("change.borderStyle").on("change.borderStyle", "#imgItemBorderStyle", function() {
+        //     _this.configChange("border-style", this.value);
+        // })
 
         //边框颜色 选择
-        $("#luckysheet-modal-dialog-slider-imageCtrl").off("click.color").on("click.color", "#imgItemBorderColor", function() {
-            let currenColor = $(this).find("span").attr("title");
-            _this.colorSelectDialog(currenColor);
-        })
+        // $("#luckysheet-modal-dialog-slider-imageCtrl").off("click.color").on("click.color", "#imgItemBorderColor", function() {
+        //     let currenColor = $(this).find("span").attr("title");
+        //     _this.colorSelectDialog(currenColor);
+        // })
 
         //边框选择颜色 确定 
-        $(document).off("click.selectColorConfirm").on("click.selectColorConfirm", "#luckysheet-imageCtrl-colorSelect-dialog-confirm", function(){
-            let $parent = $(this).parents("#luckysheet-imageCtrl-colorSelect-dialog");
-            $("#luckysheet-modal-dialog-mask").hide();
-            $parent.hide();
+        // $(document).off("click.selectColorConfirm").on("click.selectColorConfirm", "#luckysheet-imageCtrl-colorSelect-dialog-confirm", function(){
+        //     let $parent = $(this).parents("#luckysheet-imageCtrl-colorSelect-dialog");
+        //     $("#luckysheet-modal-dialog-mask").hide();
+        //     $parent.hide();
 
-            let currenColor = $parent.find(".currenColor span").attr("title");
-            $("#luckysheet-modal-dialog-slider-imageCtrl #imgItemBorderColor span").css("background-color", currenColor).attr("title", currenColor);
+        //     let currenColor = $parent.find(".currenColor span").attr("title");
+        //     $("#luckysheet-modal-dialog-slider-imageCtrl #imgItemBorderColor span").css("background-color", currenColor).attr("title", currenColor);
 
-            _this.configChange("border-color", currenColor);            
-        });
+        //     _this.configChange("border-color", currenColor);            
+        // });
 
         //image active
         $("#luckysheet-image-showBoxs").off("mousedown.active").on("mousedown.active", ".luckysheet-modal-dialog-image", function(e) {
             
-
             if(!checkProtectionAuthorityNormal(Store.currentSheetIndex, "editObjects",false)){
                 return;
             }
@@ -392,100 +389,100 @@ const imageCtrl = {
         })
 
         //image move
-        $("#luckysheet-modal-dialog-activeImage").off("mousedown.move").on("mousedown.move", ".luckysheet-modal-dialog-content", function(e) {
-            if(!checkProtectionAuthorityNormal(Store.currentSheetIndex, "editObjects",false)){
-                return;
-            }
+        // $("#luckysheet-modal-dialog-activeImage").off("mousedown.move").on("mousedown.move", ".luckysheet-modal-dialog-content", function(e) {
+        //     if(!checkProtectionAuthorityNormal(Store.currentSheetIndex, "editObjects",false)){
+        //         return;
+        //     }
             
-            if(!$("#luckysheet-modal-dialog-slider-imageCtrl").is(":visible")){
-                _this.sliderHtmlShow();
-            }
+        //     if(!$("#luckysheet-modal-dialog-slider-imageCtrl").is(":visible")){
+        //         _this.sliderHtmlShow();
+        //     }
             
-            _this.move = true;
+        //     _this.move = true;
             
-            _this.currentWinW = $("#luckysheet-cell-main")[0].scrollWidth;
-            _this.currentWinH = $("#luckysheet-cell-main")[0].scrollHeight;
+        //     _this.currentWinW = $("#luckysheet-cell-main")[0].scrollWidth;
+        //     _this.currentWinH = $("#luckysheet-cell-main")[0].scrollHeight;
 
-            let offset = $("#luckysheet-modal-dialog-activeImage").offset();
+        //     let offset = $("#luckysheet-modal-dialog-activeImage").offset();
 
-            _this.moveXY = [
-                e.pageX - offset.left, 
-                e.pageY - offset.top, 
-            ];
+        //     _this.moveXY = [
+        //         e.pageX - offset.left, 
+        //         e.pageY - offset.top, 
+        //     ];
 
-            setluckysheet_scroll_status(true);
+        //     setluckysheet_scroll_status(true);
 
-            e.stopPropagation();
-        })
+        //     e.stopPropagation();
+        // })
 
         //image resize
-        $("#luckysheet-modal-dialog-activeImage").off("mousedown.resize").on("mousedown.resize", ".luckysheet-modal-dialog-resize-item", function(e) {
-            if(!checkProtectionAuthorityNormal(Store.currentSheetIndex, "editObjects",false)){
-                return;
-            }
+        // $("#luckysheet-modal-dialog-activeImage").off("mousedown.resize").on("mousedown.resize", ".luckysheet-modal-dialog-resize-item", function(e) {
+        //     if(!checkProtectionAuthorityNormal(Store.currentSheetIndex, "editObjects",false)){
+        //         return;
+        //     }
             
-            _this.currentWinW = $("#luckysheet-cell-main")[0].scrollWidth;
-            _this.currentWinH = $("#luckysheet-cell-main")[0].scrollHeight;
+        //     _this.currentWinW = $("#luckysheet-cell-main")[0].scrollWidth;
+        //     _this.currentWinH = $("#luckysheet-cell-main")[0].scrollHeight;
 
-            _this.resize = $(this).data("type");
+        //     _this.resize = $(this).data("type");
 
-            let scrollTop = $("#luckysheet-cell-main").scrollTop(), 
-                scrollLeft = $("#luckysheet-cell-main").scrollLeft();
-            let mouse = mouseposition(e.pageX, e.pageY);
-            let x = mouse[0] + scrollLeft;
-            let y = mouse[1] + scrollTop;
+        //     let scrollTop = $("#luckysheet-cell-main").scrollTop(), 
+        //         scrollLeft = $("#luckysheet-cell-main").scrollLeft();
+        //     let mouse = mouseposition(e.pageX, e.pageY);
+        //     let x = mouse[0] + scrollLeft;
+        //     let y = mouse[1] + scrollTop;
 
-            let position = $("#luckysheet-modal-dialog-activeImage").position();
-            let width = $("#luckysheet-modal-dialog-activeImage").width();
-            let height = $("#luckysheet-modal-dialog-activeImage").height();
+        //     let position = $("#luckysheet-modal-dialog-activeImage").position();
+        //     let width = $("#luckysheet-modal-dialog-activeImage").width();
+        //     let height = $("#luckysheet-modal-dialog-activeImage").height();
 
-            _this.resizeXY = [
-                x, 
-                y, 
-                width, 
-                height, 
-                position.left + scrollLeft, 
-                position.top + scrollTop, 
-                scrollLeft, 
-                scrollTop
-            ];
+        //     _this.resizeXY = [
+        //         x, 
+        //         y, 
+        //         width, 
+        //         height, 
+        //         position.left + scrollLeft, 
+        //         position.top + scrollTop, 
+        //         scrollLeft, 
+        //         scrollTop
+        //     ];
 
-            setluckysheet_scroll_status(true);
+        //     setluckysheet_scroll_status(true);
             
-            e.stopPropagation();
-        })
+        //     e.stopPropagation();
+        // })
 
         //image croppingEnter
-        $("#luckysheet-modal-dialog-activeImage").off("mousedown.croppingEnter").on("mousedown.croppingEnter", ".luckysheet-modal-controll-crop", function(e) {
-            _this.croppingEnter();
-            e.stopPropagation();
-        })
+        // $("#luckysheet-modal-dialog-activeImage").off("mousedown.croppingEnter").on("mousedown.croppingEnter", ".luckysheet-modal-controll-crop", function(e) {
+        //     _this.croppingEnter();
+        //     e.stopPropagation();
+        // })
 
         //image croppingExit
-        $("#luckysheet-modal-dialog-cropping").off("mousedown.croppingExit").on("mousedown.croppingExit", ".luckysheet-modal-controll-crop", function(e) {
-            _this.croppingExit();
-            e.stopPropagation();
-        })
+        // $("#luckysheet-modal-dialog-cropping").off("mousedown.croppingExit").on("mousedown.croppingExit", ".luckysheet-modal-controll-crop", function(e) {
+        //     _this.croppingExit();
+        //     e.stopPropagation();
+        // })
 
         //image crop change
-        $("#luckysheet-modal-dialog-cropping").off("mousedown.cropChange").on("mousedown.cropChange", ".resize-item", function(e) {
-            _this.cropChange = $(this).data("type");
+        // $("#luckysheet-modal-dialog-cropping").off("mousedown.cropChange").on("mousedown.cropChange", ".resize-item", function(e) {
+        //     _this.cropChange = $(this).data("type");
 
-            let scrollTop = $("#luckysheet-cell-main").scrollTop(), 
-                scrollLeft = $("#luckysheet-cell-main").scrollLeft();
-            let mouse = mouseposition(e.pageX, e.pageY);
-            let x = mouse[0] + scrollLeft;
-            let y = mouse[1] + scrollTop;
+        //     let scrollTop = $("#luckysheet-cell-main").scrollTop(), 
+        //         scrollLeft = $("#luckysheet-cell-main").scrollLeft();
+        //     let mouse = mouseposition(e.pageX, e.pageY);
+        //     let x = mouse[0] + scrollLeft;
+        //     let y = mouse[1] + scrollTop;
 
-            _this.cropChangeXY = [
-                x, 
-                y
-            ];
+        //     _this.cropChangeXY = [
+        //         x, 
+        //         y
+        //     ];
 
-            setluckysheet_scroll_status(true);
+        //     setluckysheet_scroll_status(true);
             
-            e.stopPropagation();
-        })
+        //     e.stopPropagation();
+        // })
 
         //image restore
         $("#luckysheet-image-showBoxs").off("mousedown.restore").on("mousedown.restore", ".luckysheet-modal-controll-restore", function(e) {
@@ -494,10 +491,10 @@ const imageCtrl = {
         })
 
         //image delete
-        $("#luckysheet-image-showBoxs").off("mousedown.delete").on("mousedown.delete", ".luckysheet-modal-controll-del", function(e) {
-            _this.removeImgItem();
-            e.stopPropagation();
-        })
+        // $("#luckysheet-image-showBoxs").off("mousedown.delete").on("mousedown.delete", ".luckysheet-modal-controll-del", function(e) {
+        //     _this.removeImgItem();
+        //     e.stopPropagation();
+        // })
     },
     configChange: function(type, value){
         let _this = this;
@@ -583,6 +580,7 @@ const imageCtrl = {
         }
     },
     cancelActiveImgItem: function(){
+         
         let _this = this;
 
         $("#luckysheet-modal-dialog-activeImage").hide();
