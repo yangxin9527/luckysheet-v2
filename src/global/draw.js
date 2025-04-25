@@ -1747,9 +1747,24 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
         if(cell.ct && cell.ct.fa && cell.ct.fa.indexOf('[Red]') > -1 && cell.ct.t == 'n' && cell.v < 0){
             luckysheetTableContent.fillStyle = '#ff0000';
         }
-
+        let newValues = []
+        if(textInfo&&textInfo.values){
+    
+            newValues = textInfo.values.map(value => {
+                if(cell.fc){
+                    return {
+                        ...value,
+                        fc:cell.fc
+                    }
+                }
+                return value
+            });
+        }
         cellTextRender(
-            textInfo,
+            {
+                ...textInfo,
+                values: newValues
+            },
             luckysheetTableContent,
             {
                 pos_x:pos_x,
@@ -1866,7 +1881,10 @@ let cellOverflowRender = function(r, c, stc, edc,luckysheetTableContent,scrollHe
 
     //单元格 文本颜色
     luckysheetTableContent.fillStyle = menuButton.checkstatus(Store.flowdata, r, c , "fc");
-        
+    if(cell.fc){
+        luckysheetTableContent.fillStyle = cell.fc;
+
+    }
     //若单元格有交替颜色 文本颜色
     if(checksAF != null && checksAF[0] != null){ 
         luckysheetTableContent.fillStyle = checksAF[0];
@@ -1875,9 +1893,24 @@ let cellOverflowRender = function(r, c, stc, edc,luckysheetTableContent,scrollHe
     if(checksCF != null && checksCF["textColor"] != null){ 
         luckysheetTableContent.fillStyle = checksCF["textColor"];
     }
+    let newValues = []
+    if(textInfo&&textInfo.values){
 
+        newValues = textInfo.values.map(value => {
+            if(cell.fc){
+                return {
+                    ...value,
+                    fc:cell.fc
+                }
+            }
+            return value
+        });
+    }
     cellTextRender(
-        textInfo,
+        {
+            ...textInfo,
+            values: newValues
+        },
         luckysheetTableContent,
         {
             pos_x:pos_x,
@@ -2189,7 +2222,7 @@ function cellTextRender(textInfo, ctx, option){
         }
         else{
             ctx.font = word.style;
-            ctx.fillStyle = Store.themeData.fillStyle;
+            ctx.fillStyle =word.fc || Store.themeData.fillStyle;
 
         }
         // 暂时未排查到word.content第一次会是object，先做下判断来渲染，后续找到问题再复原
