@@ -390,7 +390,7 @@ export function getFontStyleByCell(cell,checksAF,checksCF, isCheck=true){
 
 export function checkstatusByCell(cell, a){
     let foucsStatus =cell;
-    let tf = {"bl":1, "it":1 , "ff":1, "cl":1, "un":1};
+    let tf = {"bl":1, "it":1 , "ff":1, "cl":0, "un":1};
 
     if(a in tf || (a=="fs" && isInlineStringCell(cell)) ){
         if(foucsStatus == null){
@@ -426,7 +426,7 @@ export function checkstatusByCell(cell, a){
         }
     }
     else if(a == "fc"){
-        if(foucsStatus == null || Store.themeData.theme ==='dark'){
+        if(foucsStatus == null){
             foucsStatus = "#000000";
         }
         else{

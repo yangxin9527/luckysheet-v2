@@ -616,11 +616,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
 
 
             if (Store.flowdata[r] != null && Store.flowdata[r][c] != null) {
-                let value = {...Store.flowdata[r][c]};
-                if(Store.themeData.theme==='dark'){
-                    value.bg = null
-                    value.fc = null
-                }
+                let value = Store.flowdata[r][c];
 
                 if(getObjType(value) == "object" && ("mc" in value)){
                     borderOffset[r + "_" + c] = { 
@@ -1285,7 +1281,6 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
     let cellWidth = end_c - start_c - 2;
     let cellHeight = end_r - start_r - 2;
     let space_width = 2, space_height = 2; //宽高方向 间隙
-
     //水平对齐
     let horizonAlign = menuButton.checkstatus(Store.flowdata, r, c, "ht");
     //垂直对齐
@@ -1733,7 +1728,6 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
                 horizonAlignPos = horizonAlignPos + textInfo.textHeightAll/Store.zoomRatio;
             }
         }
-
         //单元格 文本颜色
         luckysheetTableContent.fillStyle = menuButton.checkstatus(Store.flowdata, r, c , "fc");
         
@@ -2192,7 +2186,11 @@ function cellTextRender(textInfo, ctx, option){
         }
         else{
             ctx.font = word.style;
-            ctx.fillStyle = Store.themeData.fillStyle;
+            if(Store.themeData.theme==='dark'){
+                ctx.fillStyle = Store.themeData.fillStyle;
+            }else{
+                ctx.fillStyle =word.fc
+            }
 
         }
         // 暂时未排查到word.content第一次会是object，先做下判断来渲染，后续找到问题再复原
@@ -2200,22 +2198,22 @@ function cellTextRender(textInfo, ctx, option){
         ctx.fillText(txt, (pos_x + word.left)/Store.zoomRatio, (pos_y+word.top)/Store.zoomRatio);
         
         
-        if(word.cancelLine!=null){
-            let c = word.cancelLine;
-            ctx.beginPath();
-            ctx.moveTo(
-                Math.floor((pos_x +c.startX)/Store.zoomRatio)+0.5 ,
-                Math.floor((pos_y+c.startY)/Store.zoomRatio)+0.5 ,
-            );
-            ctx.lineTo(
-                Math.floor((pos_x +c.endX)/Store.zoomRatio)+0.5 ,
-                Math.floor((pos_y+c.endY)/Store.zoomRatio)+0.5 ,
-            );
-            ctx.lineWidth = Math.floor(c.fs/9);
-            ctx.strokeStyle = ctx.fillStyle;
-            ctx.stroke();
-            ctx.closePath();
-        }
+        // if(word.cancelLine!=null){
+        //     let c = word.cancelLine;
+        //     ctx.beginPath();
+        //     ctx.moveTo(
+        //         Math.floor((pos_x +c.startX)/Store.zoomRatio)+0.5 ,
+        //         Math.floor((pos_y+c.startY)/Store.zoomRatio)+0.5 ,
+        //     );
+        //     ctx.lineTo(
+        //         Math.floor((pos_x +c.endX)/Store.zoomRatio)+0.5 ,
+        //         Math.floor((pos_y+c.endY)/Store.zoomRatio)+0.5 ,
+        //     );
+        //     ctx.lineWidth = Math.floor(c.fs/9);
+        //     ctx.strokeStyle = ctx.fillStyle;
+        //     ctx.stroke();
+        //     ctx.closePath();
+        // }
 
         if(word.underLine!=null){
             let underLines = word.underLine;

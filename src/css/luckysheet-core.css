@@ -2946,6 +2946,7 @@ fieldset[disabled] .btn-danger.focus {
     transition: all 0.3s;
     display: none;
     white-space: nowrap;
+    display:none!important;
 }
 
 .luckysheet-row-count-show {
