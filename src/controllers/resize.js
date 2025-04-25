@@ -1,10 +1,10 @@
-import luckysheetConfigsetting from './luckysheetConfigsetting';
-import luckysheetFreezen from './freezen';
 import { luckysheetrefreshgrid } from '../global/refresh';
-import Store from '../store';
+import tooltip from '../global/tooltip';
 import locale from '../locale/locale';
+import Store from '../store';
+import luckysheetFreezen from './freezen';
+import luckysheetConfigsetting from './luckysheetConfigsetting';
 import sheetmanage from './sheetmanage';
-import tooltip from '../global/tooltip'
 
 let gridW = 0, 
     gridH = 0;
@@ -252,7 +252,9 @@ export function changeSheetContainerSize(gridW, gridH){
     $("#luckysheet-cell-main").height(Store.cellmainHeight);
     $("#luckysheet-rows-h").height(Store.cellmainHeight - Store.cellMainSrollBarSize);
 
-    $("#luckysheet-scrollbar-y").height(Store.cellmainHeight + Store.columnHeaderHeight - Store.cellMainSrollBarSize - 3);
+    //  diy 原本代码有一个-3 不太理解
+    // $("#luckysheet-scrollbar-y").height(Store.cellmainHeight + Store.columnHeaderHeight - Store.cellMainSrollBarSize - 3);
+    $("#luckysheet-scrollbar-y").height(Store.cellmainHeight + Store.columnHeaderHeight - Store.cellMainSrollBarSize );
     $("#luckysheet-scrollbar-x").height(Store.cellMainSrollBarSize);
     $("#luckysheet-scrollbar-y").width(Store.cellMainSrollBarSize);
 

@@ -1594,6 +1594,7 @@ body:not(.ewa-ipad) .luckysheet-rows-h-cell-sel:hover {
     overflow: hidden;
     z-index: 20;
     scrollbar-color: inherit;
+    background: var(--background-gray-main);
 }
 
 .luckysheet-scrollbar-ltr div {
