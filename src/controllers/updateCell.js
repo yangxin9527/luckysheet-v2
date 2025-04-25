@@ -94,13 +94,28 @@ export function luckysheetupdateCell(row_index1, col_index1, d, cover, isnotfocu
     if(luckysheetFreezen.freezenhorizontaldata != null && row_index1 <= luckysheetFreezen.freezenhorizontaldata[1]){
         top = row_pre + container_offset.top + Store.infobarHeight + Store.toolbarHeight + Store.calculatebarHeight + Store.columnHeaderHeight - 2;
     }
-
+    // 剩余宽度很小
+    const minWidth = col - col_pre + 1- 8
+    let maxWidth = winW + scrollLeft - col_pre - 20 - Store.rowHeaderWidth
+    const remainWidth = document.querySelector("#" + Store.container).offsetWidth + scrollLeft - col_pre - 20 - Store.rowHeaderWidth
+    if(remainWidth < minWidth){
+        left -= minWidth - remainWidth
+        maxWidth = minWidth
+    }
+    const minHeight = row - row_pre + 1- 4
+    let maxHeight = winH + scrollTop - row_pre - 20 - 15 - Store.toolbarHeight - Store.infobarHeight - Store.calculatebarHeight - Store.sheetBarHeight - Store.statisticBarHeight
+    let remainHeight = document.querySelector("#" + Store.container).offsetHeight + scrollTop - row_pre - 20 - 15 - Store.toolbarHeight - Store.infobarHeight - Store.calculatebarHeight - Store.sheetBarHeight - Store.statisticBarHeight
+    if(remainHeight < minHeight){
+        // top -= minHeight - remainHeight
+        // maxHeight = minHeight
+        //超出下边界 不处理
+        return
+    }
     let input_postition = {
-        "min-width": col - col_pre+ 1- 8, 
-        "min-height": row - row_pre + 1- 4,  
-        
-        "max-width": winW + scrollLeft - col_pre - 20 - Store.rowHeaderWidth, 
-        "max-height": winH + scrollTop - row_pre - 20 - 15 - Store.toolbarHeight - Store.infobarHeight - Store.calculatebarHeight - Store.sheetBarHeight - Store.statisticBarHeight, 
+        "min-width": minWidth, 
+        "min-height": minHeight,  
+        "max-width": maxWidth, 
+        "max-height": maxHeight - 4, // -4 是有时候border占据了空间 
         "left": left, 
         "top": top, 
     }
