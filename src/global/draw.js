@@ -616,7 +616,11 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
 
 
             if (Store.flowdata[r] != null && Store.flowdata[r][c] != null) {
-                let value = Store.flowdata[r][c];
+                let value = {...Store.flowdata[r][c]};
+                if(Store.themeData.theme==='dark'){
+                    value.bg = null
+                    value.fc = null
+                }
 
                 if(getObjType(value) == "object" && ("mc" in value)){
                     borderOffset[r + "_" + c] = { 
@@ -1133,12 +1137,11 @@ let sparklinesRender = function(r, c, offsetX, offsetY, canvasid, ctx){
 let nullCellRender = function(r, c, start_r, start_c, end_r, end_c,luckysheetTableContent,af_compute,cf_compute,offsetLeft,offsetTop,dynamicArray_compute,cellOverflowMap, dataset_col_st, dataset_col_ed,scrollHeight,scrollWidth,bodrder05,isMerge){
     let checksAF = alternateformat.checksAF(r, c, af_compute); //交替颜色
     let checksCF = conditionformat.checksCF(r, c, cf_compute); //条件格式
-
+    
     let borderfix = menuButton.borderfix(Store.flowdata, r, c);
 
     //背景色
     let fillStyle = menuButton.checkstatus(Store.flowdata, r, c , "bg");
-
     if(checksAF != null && checksAF[1] != null){//交替颜色 
         fillStyle = checksAF[1];
     }

@@ -1,13 +1,13 @@
-import { getObjType,rgbTohex } from '../utils/util';
-import { getSheetIndex } from '../methods/get';
+import { isInlineStringCT, isInlineStringCell } from '../controllers/inlineString';
 import server from '../controllers/server';
-import formula from './formula';
-import editor from './editor';
-import { dynamicArrayCompute } from './dynamicArray';
 import sheetmanage from '../controllers/sheetmanage';
-import { isInlineStringCT,isInlineStringCell,convertCssToStyleList } from '../controllers/inlineString';
 import locale from '../locale/locale';
+import { getSheetIndex } from '../methods/get';
 import Store from '../store';
+import { getObjType, rgbTohex } from '../utils/util';
+import { dynamicArrayCompute } from './dynamicArray';
+import editor from './editor';
+import formula from './formula';
 
 //Get selection range value
 export function getdatabyselection(range, sheetIndex) {
@@ -369,7 +369,7 @@ export function getFontStyleByCell(cell,checksAF,checksCF, isCheck=true){
         }
 
         if(key == "cl" && value != "0"){
-            style += "text-decoration: line-through;";
+            // style += "text-decoration: line-through;";
         }
 
         if(key == "un" && (value == "1" || value == "3")){
@@ -426,7 +426,7 @@ export function checkstatusByCell(cell, a){
         }
     }
     else if(a == "fc"){
-        if(foucsStatus == null){
+        if(foucsStatus == null || Store.themeData.theme ==='dark'){
             foucsStatus = "#000000";
         }
         else{
@@ -442,7 +442,7 @@ export function checkstatusByCell(cell, a){
         }
     }
     else if(a == "bg"){
-        if(foucsStatus == null){
+        if(foucsStatus == null || Store.themeData.theme ==='dark'){
             foucsStatus = null;
         }
         else{

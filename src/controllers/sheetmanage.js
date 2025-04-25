@@ -1,35 +1,33 @@
-import { isEditMode } from '../global/validate';
-import cleargridelement from '../global/cleargridelement';
-import { getcellvalue, datagridgrowth,getcellFormula } from '../global/getdata';
-import { setcellvalue } from '../global/setdata';
-import luckysheetcreatedom from '../global/createdom';
-import tooltip from '../global/tooltip';
-import formula from '../global/formula';
-import { luckysheetrefreshgrid, jfrefreshgrid_rhcw } from '../global/refresh';
-import rhchInit from '../global/rhchInit';
-import editor from '../global/editor';
-import { luckysheetextendtable, luckysheetdeletetable } from '../global/extend';
-import { isRealNum } from '../global/validate';
-import { replaceHtml, getObjType, chatatABC, arrayRemoveItem } from '../utils/util';
-import { sheetHTML,luckysheetlodingHTML } from './constant';
-import server from './server';
-import luckysheetConfigsetting from './luckysheetConfigsetting';
-import pivotTable from './pivotTable';
-import luckysheetsizeauto from './resize';
-import luckysheetPostil from './postil';
-import imageCtrl from './imageCtrl';
-import dataVerificationCtrl from './dataVerificationCtrl';
-import hyperlinkCtrl from './hyperlinkCtrl';
-import luckysheetFreezen from './freezen';
-import { createFilterOptions, labelFilterOptionState } from './filter';
-import { selectHightlightShow, selectionCopyShow } from './select';
-import Store from '../store';
-import locale from '../locale/locale';
 import { renderChartShow } from '../expendPlugins/chart/plugin';
-import {changeSheetContainerSize, menuToolBarWidth} from './resize';
-import {zoomNumberDomBind} from './zoom';
-import menuButton from './menuButton';
+import cleargridelement from '../global/cleargridelement';
+import luckysheetcreatedom from '../global/createdom';
+import editor from '../global/editor';
+import { luckysheetdeletetable, luckysheetextendtable } from '../global/extend';
+import formula from '../global/formula';
+import { datagridgrowth, getcellFormula, getcellvalue } from '../global/getdata';
 import method from '../global/method';
+import { jfrefreshgrid_rhcw, luckysheetrefreshgrid } from '../global/refresh';
+import rhchInit from '../global/rhchInit';
+import { setcellvalue } from '../global/setdata';
+import tooltip from '../global/tooltip';
+import { isEditMode, isRealNum } from '../global/validate';
+import locale from '../locale/locale';
+import Store from '../store';
+import { arrayRemoveItem, chatatABC, getObjType, replaceHtml } from '../utils/util';
+import { luckysheetlodingHTML, sheetHTML } from './constant';
+import dataVerificationCtrl from './dataVerificationCtrl';
+import { createFilterOptions, labelFilterOptionState } from './filter';
+import luckysheetFreezen from './freezen';
+import hyperlinkCtrl from './hyperlinkCtrl';
+import imageCtrl from './imageCtrl';
+import luckysheetConfigsetting from './luckysheetConfigsetting';
+import menuButton from './menuButton';
+import pivotTable from './pivotTable';
+import luckysheetPostil from './postil';
+import luckysheetsizeauto, { menuToolBarWidth } from './resize';
+import { selectHightlightShow, selectionCopyShow } from './select';
+import server from './server';
+import { zoomNumberDomBind } from './zoom';
 
 const sheetmanage = {
     generateRandomSheetIndex: function(prefix) {
@@ -1005,7 +1003,8 @@ const sheetmanage = {
         imageCtrl.currentImgId = null;
         imageCtrl.images = file.images;
         imageCtrl.allImagesShow();
-        imageCtrl.init();
+        // diy
+        // imageCtrl.init();
 
         //数据验证
         dataVerificationCtrl.dataVerification = file.dataVerification;

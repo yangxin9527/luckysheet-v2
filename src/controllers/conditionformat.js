@@ -1,19 +1,19 @@
-import { getSheetIndex, getRangetxt } from '../methods/get';
-import { replaceHtml, getObjType, chatatABC } from '../utils/util';
-import formula from '../global/formula';
-import { isRealNull, isEditMode } from '../global/validate';
-import tooltip from '../global/tooltip';
-import { luckysheetrefreshgrid } from '../global/refresh';
-import { getcellvalue } from '../global/getdata';
+import dayjs from 'dayjs';
 import { genarate } from '../global/format';
-import { modelHTML, luckysheet_CFiconsImg } from './constant';
-import server from './server';
-import { selectionCopyShow } from './select';
-import sheetmanage from './sheetmanage';
+import formula from '../global/formula';
+import { getcellvalue } from '../global/getdata';
+import { luckysheetrefreshgrid } from '../global/refresh';
+import tooltip from '../global/tooltip';
+import { isEditMode, isRealNull } from '../global/validate';
 import locale from '../locale/locale';
-import {checkProtectionFormatCells} from './protection';
+import { getRangetxt, getSheetIndex } from '../methods/get';
 import Store from '../store';
-import dayjs from 'dayjs'
+import { chatatABC, getObjType, replaceHtml } from '../utils/util';
+import { luckysheet_CFiconsImg, modelHTML } from './constant';
+import { checkProtectionFormatCells } from './protection';
+import { selectionCopyShow } from './select';
+import server from './server';
+import sheetmanage from './sheetmanage';
 
 //条件格式
 const conditionformat = {
@@ -904,7 +904,6 @@ const conditionformat = {
 
                     //条件值
                     let v = $("#luckysheet-editorConditionRule-dialog #formulaConditionVal input").val().trim(); 
-                    console.log(v)
                     if(v == ""){
                         _this.infoDialog("Condition value cannot be empty!", "");
                         return;

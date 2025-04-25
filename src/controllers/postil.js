@@ -1,17 +1,16 @@
-import { rowLocation, colLocation, mouseposition } from '../global/location';
-import editor from '../global/editor';
-import formula from '../global/formula';
 import { luckysheetRangeLast } from '../global/cursorPos';
+import editor from '../global/editor';
+import { colLocation, mouseposition, rowLocation } from '../global/location';
+import method from '../global/method';
 import { luckysheetrefreshgrid } from '../global/refresh';
-import { setluckysheet_scroll_status } from '../methods/set';
 import { getSheetIndex } from '../methods/get';
+import { setluckysheet_scroll_status } from '../methods/set';
+import Store from '../store';
 import { getObjType } from '../utils/util';
 import luckysheetFreezen from './freezen';
 import menuButton from './menuButton';
-import {checkProtectionAuthorityNormal} from './protection';
+import { checkProtectionAuthorityNormal } from './protection';
 import server from './server';
-import Store from '../store';
-import method from '../global/method';
 
 //批注
 const luckysheetPostil = {
@@ -927,7 +926,6 @@ const luckysheetPostil = {
     },
     htmlEscape: function(text){
         return text.replace(/[<>"&]/g, function(match, pos, originalText){
-            console.log(match, pos, originalText)
             switch(match){
                 case '<': {
                     return '&lt';

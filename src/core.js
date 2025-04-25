@@ -39,7 +39,6 @@ import Mandarin from 'flatpickr/dist/l10n/zh.js';
 import { initListener } from './controllers/listener';
 
 let luckysheet = {};
-console.log('luckysheet=====');
 // mount api
 // luckysheet.api = api;
 // Object.assign(luckysheet, api);
@@ -71,36 +70,7 @@ luckysheet.create = function (setting) {
     let loadurl = extendsetting.loadUrl,
         menu = extendsetting.menu,
         title = extendsetting.title;
-        //暗黑模式去掉颜色和背景
-        if(isDark){
-            extendsetting.data.forEach((item)=>{
-                if(item.celldata){
-                    item.celldata.forEach((cell)=>{
-                        if(cell&&cell.v&&cell.v.bg){
-                            cell.v.bg=null
-                            cell.v.fc=null
-                        }
-                        // 解析错误 excellucksheet 有时候会把cancelline	删除线解析为1 是错误情况
-
-                        if(cell&&cell.v&&cell.v.cl===1){
-                            cell.v.cl=0
-                        }
-                    })
-                }
-            })
-            console.log(extendsetting.data)
-        }else{
-            extendsetting.data.forEach((item)=>{
-                if(item.celldata){
-                    item.celldata.forEach((cell)=>{
-                        // 解析错误 excellucksheet 有时候会把cancelline	删除线解析为1 是错误情况
-                        if(cell&&cell.v&&cell.v.cl===1){
-                            cell.v.cl=0
-                        }
-                    })
-                }
-            })
-        }
+    
     let container = extendsetting.container;
     Store.container = container;
     Store.luckysheetfile = extendsetting.data;

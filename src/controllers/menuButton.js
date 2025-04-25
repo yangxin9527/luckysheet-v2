@@ -1,42 +1,42 @@
-import { selectionCopyShow, selectIsOverlap } from './select';
-import { luckyColor, iconfontObjects } from './constant';
-import luckysheetConfigsetting from './luckysheetConfigsetting';
-import luckysheetMoreFormat from './moreFormat';
-import alternateformat from './alternateformat';
-import conditionformat from './conditionformat';
-import server from './server';
-import { luckysheet_searcharray } from './sheetSearch';
-import luckysheetFreezen from './freezen';
-import luckysheetsizeauto from './resize';
-import { createFilter } from './filter';
-import luckysheetSearchReplace from './searchReplace';
-import luckysheetLocationCell from './locationCell';
-import ifFormulaGenerator from './ifFormulaGenerator';
-import {luckysheetupdateCell} from './updateCell';
-import insertFormula from './insertFormula';
-import sheetmanage from './sheetmanage';
-import luckysheetPostil from './postil';
-import { isRealNum, isRealNull, isEditMode, hasPartMC } from '../global/validate';
-import tooltip from '../global/tooltip';
-import editor from '../global/editor';
-import { genarate, update, is_date } from '../global/format';
-import { jfrefreshgrid, luckysheetrefreshgrid } from '../global/refresh';
-import { sortSelection } from '../global/sort';
-import luckysheetformula from '../global/formula';
-import { rowLocationByIndex, colLocationByIndex } from '../global/location';
-import { isdatatypemulti } from '../global/datecontroll';
-import { rowlenByRange, getCellTextSplitArr } from '../global/getRowlen';
-import { setcellvalue } from '../global/setdata';
-import { getFontStyleByCell, checkstatusByCell} from '../global/getdata';
 import { countfunc } from '../global/count';
 import { hideMenuByCancel } from '../global/cursorPos';
-import { getSheetIndex, getRangetxt, getluckysheetfile } from '../methods/get';
-import { setluckysheetfile } from '../methods/set';
-import {isInlineStringCell,updateInlineStringFormat,convertCssToStyleList,inlineStyleAffectAttribute,updateInlineStringFormatOutside} from './inlineString';
-import { replaceHtml, getObjType, rgbTohex, mouseclickposition, luckysheetfontformat,luckysheetContainerFocus } from '../utils/util';
-import {openProtectionModal,checkProtectionFormatCells,checkProtectionNotEnable} from './protection';
-import Store from '../store';
+import { isdatatypemulti } from '../global/datecontroll';
+import editor from '../global/editor';
+import { genarate, is_date, update } from '../global/format';
+import luckysheetformula from '../global/formula';
+import { checkstatusByCell, getFontStyleByCell } from '../global/getdata';
+import { rowlenByRange } from '../global/getRowlen';
+import { colLocationByIndex, rowLocationByIndex } from '../global/location';
+import { jfrefreshgrid, luckysheetrefreshgrid } from '../global/refresh';
+import { setcellvalue } from '../global/setdata';
+import { sortSelection } from '../global/sort';
+import tooltip from '../global/tooltip';
+import { hasPartMC, isEditMode, isRealNull, isRealNum } from '../global/validate';
 import locale from '../locale/locale';
+import { getluckysheetfile, getRangetxt, getSheetIndex } from '../methods/get';
+import { setluckysheetfile } from '../methods/set';
+import Store from '../store';
+import { getObjType, luckysheetContainerFocus, mouseclickposition, replaceHtml } from '../utils/util';
+import alternateformat from './alternateformat';
+import conditionformat from './conditionformat';
+import { iconfontObjects, luckyColor } from './constant';
+import { createFilter } from './filter';
+import luckysheetFreezen from './freezen';
+import ifFormulaGenerator from './ifFormulaGenerator';
+import { convertCssToStyleList, inlineStyleAffectAttribute, isInlineStringCell, updateInlineStringFormat, updateInlineStringFormatOutside } from './inlineString';
+import insertFormula from './insertFormula';
+import luckysheetLocationCell from './locationCell';
+import luckysheetConfigsetting from './luckysheetConfigsetting';
+import luckysheetMoreFormat from './moreFormat';
+import luckysheetPostil from './postil';
+import { checkProtectionFormatCells, checkProtectionNotEnable, openProtectionModal } from './protection';
+import luckysheetsizeauto from './resize';
+import luckysheetSearchReplace from './searchReplace';
+import { selectionCopyShow, selectIsOverlap } from './select';
+import server from './server';
+import sheetmanage from './sheetmanage';
+import { luckysheet_searcharray } from './sheetSearch';
+import { luckysheetupdateCell } from './updateCell';
 
 const menuButton = {
     "menu": '<div class="luckysheet-cols-menu luckysheet-rightgclick-menu luckysheet-menuButton ${subclass} luckysheet-mousedown-cancel" id="luckysheet-icon-${id}-menuButton">${item}</div>',
@@ -3386,7 +3386,7 @@ const menuButton = {
         if(cell == null){
             return [-1, 0, 0, -1];
         }
-        else if(d[r][c].bg == null || d[r][c].bg == ""){
+        else if(d[r][c].bg == null || d[r][c].bg == "" || Store.themeData.theme==='dark'){
             return [-1, 0, 0, -1];
         }
         else {
